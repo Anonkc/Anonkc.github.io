@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Me - Ayodele Cyber</title>
+    <style>
+        :root {
+            --bg-color: #f5f7fa;
+            --text-color: #333;
+            --primary-color: #3498db;
+            --header-bg: #2c3e50;
+            --highlight: #3498db;
+        }
+        body.dark-mode {
+            --bg-color: #1e1e1e;
+            --text-color: #e0e0e0;
+            --header-bg: #111;
+            --highlight: #4aa3ff;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+        header {
+            background-color: var(--header-bg);
+            padding: 15px 20px;
+            text-align: center;
+        }
+        header a {
+            color: white;
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: bold;
+        }
+        .top-controls {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: var(--header-bg);
+            color: white;
+        }
+        .about-section {
+            padding: 50px 20px;
+            max-width: 900px;
+            margin: auto;
+            line-height: 1.7;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .about-section h1 {
+            color: var(--header-bg);
+            font-size: 32px;
+            text-align: center;
+        }
+        .about-section img {
+            display: block;
+            margin: 20px auto;
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .about-section p {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        .highlight {
+            color: var(--highlight);
+            font-weight: bold;
+        }
+        .btn-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--highlight);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 6px;
+            margin: 0 10px;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        .timeline {
+            margin-top: 50px;
+        }
+        .timeline h2 {
+            text-align: center;
+            color: var(--header-bg);
+        }
+        .timeline ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .timeline li {
+            background: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-left: 5px solid var(--highlight);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        .timeline li h3 {
+            margin: 0;
+            font-size: 20px;
+            color: var(--header-bg);
+        }
+        .timeline li span {
+            font-size: 14px;
+            color: #888;
+        }
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+        select, button {
+            padding: 6px 10px;
+            font-size: 14px;
+            border-radius: 4px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-controls">
+        <button onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+        <select onchange="alert('Multilingual support coming soon!')">
+            <option selected>🌐 English</option>
+            <option>🇫🇷 French</option>
+            <option>🇪🇸 Spanish</option>
+        </select>
+    </div>
+
+    <header>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="skills.html">Skills</a>
+        <a href="projects.html">Projects</a>
+        <a href="certifications.html">Certifications</a>
+        <a href="contact.html">Contact</a>
+    </header>
+
+    <div class="about-section">
+        <h1>👨‍💻 Meet Ayodele Oluwafemi</h1>
+        <img src="profile.jpg" alt="Ayodele Oluwafemi">
+        <p>
+            I'm a passionate <span class="highlight">Cybersecurity Analyst</span> with a strong academic background and hands-on experience in protecting digital ecosystems.
+            With a Higher National Diploma in Computer Science and several certifications from <span class="highlight">Coursera</span>, <span class="highlight">TryHackMe</span>, and <span class="highlight">Deloitte</span>, I bring academic depth and real-world problem-solving together.
+        </p>
+        <p>
+            My skills include <span class="highlight">penetration testing</span>, <span class="highlight">ISO 27001 implementation</span>, and tools like <span class="highlight">Wireshark</span>, <span class="highlight">Burp Suite</span>, and <span class="highlight">Metasploit</span>.
+        </p>
+        <p>
+            I’ve completed a cybersecurity internship at Deloitte and numerous hands-on labs through virtual platforms.
+            I'm also driven by strong soft skills—<span class="highlight">communication</span>, <span class="highlight">collaboration</span>, and <span class="highlight">critical thinking</span>.
+        </p>
+        <p>
+            Always evolving, I merge technical ability with business impact to protect digital assets with precision.
+        </p>
+
+        <div class="btn-container">
+            <a class="btn" href="cv.pdf" target="_blank">📄 Download CV</a>
+            <a class="btn" href="#" onclick="window.print()">🖨️ Save as PDF</a>
+        </div>
+
+        <div class="timeline">
+            <h2>🕓 Timeline</h2>
+            <ul>
+                <li>
+                    <h3>Deloitte Cyber Internship</h3>
+                    <span>2025</span>
+                    <p>Simulated security operations and threat reporting for enterprise systems.</p>
+                </li>
+                <li>
+                    <h3>TryHackMe Training</h3>
+                    <span>2024</span>
+                    <p>Completed learning paths in junior pentesting and web security fundamentals.</p>
+                </li>
+                <li>
+                    <h3>Google Cybersecurity via Coursera</h3>
+                    <span>2024</span>
+                    <p>Developed foundational to intermediate knowledge in cybersecurity and governance.</p>
+                </li>
+                <li>
+                    <h3>Higher National Diploma in Computer Science</h3>
+                    <span>Graduated</span>
+                    <p>Built a strong academic base in networking, OS, databases, and programming.</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+</body>
+</html>
