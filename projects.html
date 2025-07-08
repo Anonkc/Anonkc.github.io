@@ -4,13 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects - Ayodele Oluwafemi</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
     }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to right, #eef2f3, #8e9eab);
+      background: linear-gradient(to right, #e0eafc, #cfdef3);
       margin: 0;
       padding: 0;
     }
@@ -50,31 +51,35 @@
       gap: 30px;
     }
     .folder {
-      background-color: #fff;
+      background-color: #ffffffdd;
       padding: 2rem;
       border-radius: 15px;
       text-align: center;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
     }
     .folder:hover {
       transform: translateY(-8px);
       box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
     }
+    .folder i {
+      font-size: 3rem;
+      color: #0077cc;
+      margin-bottom: 1rem;
+    }
     .folder a {
       text-decoration: none;
-      color: #0077cc;
+      color: #1a1a2e;
       font-size: 1.3rem;
       font-weight: bold;
       display: block;
-      transition: color 0.3s;
+      margin-top: 0.5rem;
     }
-    .folder a:hover {
-      color: #00c6ff;
-    }
-    .folder-icon {
-      font-size: 3rem;
-      margin-bottom: 1rem;
+    .description {
+      font-size: 0.95rem;
+      color: #333;
+      margin-top: 10px;
     }
   </style>
 </head>
@@ -93,16 +98,19 @@
     <h1>Explore My Projects</h1>
     <div class="folder-grid">
       <div class="folder">
-        <div class="folder-icon">📁</div>
+        <i class="fas fa-exclamation-triangle"></i>
         <a href="incident-response/index.html">Incident Response</a>
+        <p class="description">Real-world reports on cyber attacks like DDoS, phishing, and malware threats.</p>
       </div>
       <div class="folder">
-        <div class="folder-icon">🛡️</div>
+        <i class="fas fa-shield-alt"></i>
         <a href="penetration-testing/index.html">Penetration Testing</a>
+        <p class="description">Vulnerability scans, TryHackMe labs, and OWASP-based testing simulations.</p>
       </div>
       <div class="folder">
-        <div class="folder-icon">🔍</div>
+        <i class="fas fa-search"></i>
         <a href="security-analysis/index.html">Security Analysis</a>
+        <p class="description">ISO 27001 policies, risk assessments, and infrastructure reviews.</p>
       </div>
     </div>
   </main>
