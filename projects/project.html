@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Projects - Ayodele Cyber</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg-color: #f4f7fa;
+      --text-color: #333;
+      --card-bg: white;
+      --header-bg: #2c3e50;
+      --link-color: #2980b9;
+      --tools-color: #3498db;
+    }
+
+    body.dark {
+      --bg-color: #1c1c1c;
+      --text-color: #f0f0f0;
+      --card-bg: #2c2c2c;
+      --header-bg: #000;
+      --link-color: #4da3ff;
+      --tools-color: #7ac3ff;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    header {
+      background-color: var(--header-bg);
+      padding: 15px;
+      text-align: center;
+    }
+
+    header a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    .dark-toggle {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      background: #fff;
+      color: #333;
+      border: none;
+      padding: 6px 12px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .project-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .project-card {
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-bottom: 25px;
+      padding: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+
+    .project-card h3 {
+      color: var(--text-color);
+    }
+
+    .project-card p {
+      margin: 10px 0;
+    }
+
+    .project-tools {
+      color: var(--tools-color);
+      font-size: 14px;
+    }
+
+    .project-links a {
+      text-decoration: none;
+      margin-right: 15px;
+      color: var(--link-color);
+    }
+
+    .project-icon {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="skills.html">Skills</a>
+  <a href="projects.html">Projects</a>
+  <a href="certifications.html">Certifications</a>
+  <a href="contact.html">Contact</a>
+</header>
+
+<button class="dark-toggle" onclick="toggleDark()">Toggle Dark Mode</button>
+
+<div class="project-container">
+  <h2>🛠️ Cybersecurity Projects</h2>
+
+  <div class="project-card">
+    <h3>TryHackMe - Blue Box Walkthrough</h3>
+    <p class="project-tools"><strong>Tools:</strong> Nmap, SMBclient, Metasploit</p>
+    <p>Completed the Blue Box challenge on TryHackMe by identifying SMB vulnerabilities and gaining remote access to a Windows machine.</p>
+    <img src="images/blue-box.png" alt="Blue Box" class="project-icon">
+    <div class="project-links">
+      <a href="#">🔗 View Report</a>
+      <a href="#">📁 GitHub Repo</a>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <h3>Active Directory Lab</h3>
+    <p class="project-tools"><strong>Tools:</strong> BloodHound, CrackMapExec, Mimikatz</p>
+    <p>Simulated an enterprise AD environment and demonstrated privilege escalation from a domain user to domain admin via enumeration and credential dumping.</p>
+    <img src="images/ad-lab.png" alt="AD Lab" class="project-icon">
+    <div class="project-links">
+      <a href="#">🔗 View Report</a>
+      <a href="#">📁 GitHub Repo</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function toggleDark() {
+    document.body.classList.toggle('dark');
+  }
+</script>
+
+</body>
+</html>
