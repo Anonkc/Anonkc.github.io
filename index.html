@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ayodele Oluwafemi | Cybersecurity Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
   <style>
     body {
       margin: 0;
@@ -11,21 +13,44 @@
       background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
       color: #fff;
       font-family: 'Segoe UI', sans-serif;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
+      min-height: 100vh;
     }
+
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      background-color: #111;
+      padding: 15px 0;
+      font-size: 1rem;
+    }
+
+    nav a {
+      color: #00ffff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
     .intro {
       max-width: 800px;
+      margin: 60px auto 0;
+      text-align: center;
       padding: 0 20px;
     }
+
     h1 {
       font-size: 2.5em;
       margin-bottom: 10px;
     }
+
     .typewriter {
       border-right: 2px solid #00ffff;
       white-space: nowrap;
@@ -35,20 +60,25 @@
       font-size: 2em;
       color: #00ffff;
     }
+
     @keyframes typing {
       from { width: 0; }
       to { width: 100%; }
     }
+
     @keyframes blink {
       50% { border-color: transparent; }
     }
+
     p {
       font-size: 1.1em;
       line-height: 1.6;
     }
+
     .buttons {
       margin-top: 30px;
     }
+
     .buttons a {
       text-decoration: none;
       color: #fff;
@@ -59,19 +89,33 @@
       display: inline-block;
       transition: background 0.3s;
     }
+
     .buttons a:hover {
       background-color: #008c9e;
     }
+
     footer {
-      position: absolute;
-      bottom: 10px;
+      text-align: center;
+      padding: 20px;
       font-size: 0.9em;
       color: #ccc;
+      margin-top: 60px;
     }
   </style>
 </head>
 <body>
 
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="certifications.html"><i class="fas fa-certificate"></i> Certifications</a>
+    <a href="skills.html"><i class="fas fa-tools"></i> Skills</a>
+    <a href="projects.html"><i class="fas fa-folder-open"></i> Projects</a>
+    <a href="about.html"><i class="fas fa-user"></i> About</a>
+    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+  </nav>
+
+  <!-- Introduction Section -->
   <div class="intro">
     <h1><span class="typewriter">Ayodele Oluwafemi</span></h1>
     <p>
