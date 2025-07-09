@@ -1,69 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Incident Response Projects</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Incident Response Reports</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    * {
+      box-sizing: border-box;
       margin: 0;
-      background-color: #f8f8f8;
+      padding: 0;
     }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      min-height: 100vh;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     header {
-      background-color: #1a1a2e;
-      color: white;
+      background-color: rgba(0, 0, 0, 0.6);
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
+
+    header div {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #00ffff;
+    }
+
     nav a {
-      color: white;
+      color: #00ffff;
       margin-left: 20px;
       text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
     }
+
     nav a:hover {
-      text-decoration: underline;
+      color: #fff;
     }
+
     main {
-      padding: 2rem;
+      padding: 3rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
     }
+
     h1 {
-      color: #1a1a2e;
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #00ffff;
     }
+
     ul {
       list-style: none;
-      padding-left: 0;
+      padding: 0;
     }
+
     li {
-      margin-bottom: 15px;
+      background-color: rgba(255, 255, 255, 0.08);
+      margin-bottom: 20px;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      transition: transform 0.3s ease;
     }
+
+    li:hover {
+      transform: translateY(-6px);
+    }
+
+    li i {
+      font-size: 1.8rem;
+      margin-right: 15px;
+      color: #00bcd4;
+      min-width: 30px;
+    }
+
     li a {
-      color: #0077cc;
       text-decoration: none;
+      color: #ffffff;
+      font-size: 1.2rem;
       font-weight: bold;
     }
+
     li a:hover {
-      text-decoration: underline;
+      color: #00ffff;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav {
+        margin-top: 10px;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 10px 8px;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <div><strong>Incident Response</strong></div>
+    <div>🛡️ Incident Response</div>
     <nav>
-      <a href="../index.html">Home</a>
-      <a href="../projects.html">Projects</a>
+      <a href="../../index.html">Home</a>
+      <a href="../../projects.html">Projects</a>
     </nav>
   </header>
 
   <main>
-    <h1>Incident Response Reports</h1>
+    <h1><i class="fas fa-bug"></i> Incident Response Reports</h1>
     <ul>
-      <li><a href="DDoS_Incident_Report.pdf" target="_blank">DDoS Attack Incident Report</a></li>
-      <li><a href="Phishing_Incident_Report.pdf" target="_blank">Phishing Attack Report</a></li>
-      <li><a href="Malware_Incident_Report.pdf" target="_blank">Malware Infection Report</a></li>
+      <li>
+        <i class="fas fa-server"></i>
+        <a href="DDoS_Incident_Report.pdf" target="_blank">DDoS Attack Incident Report</a>
+      </li>
+      <li>
+        <i class="fas fa-fish"></i>
+        <a href="Phishing_Incident_Report.pdf" target="_blank">Phishing Attack Report</a>
+      </li>
+      <li>
+        <i class="fas fa-virus"></i>
+        <a href="Malware_Incident_Report.pdf" target="_blank">Malware Infection Report</a>
+      </li>
     </ul>
   </main>
 </body>
