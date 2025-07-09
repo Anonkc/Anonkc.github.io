@@ -3,55 +3,106 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Certifications</title>
+  <title>My Certifications</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
+    /* Background Animation */
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: #f0f2f5;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: #fff;
     }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     header {
-      background-color: #111827;
-      color: white;
-      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 30px;
       text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
-    h1 {
+
+    header h1 {
       margin: 0;
-      font-size: 2rem;
+      font-size: 2.5rem;
+      color: #fff;
     }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 40px;
+      gap: 30px;
+      padding: 60px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
+
     .card {
-      background: white;
-      border-radius: 10px;
-      padding: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 12px;
+      padding: 25px;
       text-align: center;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+      backdrop-filter: blur(10px);
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
     }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
     .card i {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       margin-bottom: 10px;
-      color: #007bff;
+      color: #00d1ff;
     }
+
     .card h3 {
       margin: 10px 0;
-      font-size: 1.2rem;
-      color: #111;
+      font-size: 1.4rem;
+      color: #fff;
     }
+
     .card a {
       display: inline-block;
-      margin-top: 12px;
-      padding: 8px 16px;
-      background-color: #007bff;
-      color: white;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #00d1ff;
+      color: #000;
       text-decoration: none;
+      font-weight: bold;
       border-radius: 5px;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .card {
+        padding: 20px 15px;
+      }
     }
   </style>
 </head>
@@ -72,12 +123,12 @@
       <a href="Certifications/Deloitte/index.html">View</a>
     </div>
     <div class="card">
-      <i class="fab fa-hackerrank"></i>
+      <i class="fas fa-user-secret"></i>
       <h3>TryHackMe</h3>
       <a href="Certifications/TryHackMe/index.html">View</a>
     </div>
     <div class="card">
-      <i class="fab fa-git-alt"></i>
+      <i class="fas fa-code"></i>
       <h3>GoMyCode</h3>
       <a href="Certifications/GoMyCode/index.html">View</a>
     </div>
