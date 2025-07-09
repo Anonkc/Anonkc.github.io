@@ -3,142 +3,120 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Certifications</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <title>Certifications</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
   <style>
-    body, html {
+    body {
       margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #fff;
-      background: linear-gradient(120deg, #1e1e2f, #2a2a40);
-      background-size: cover;
-      background-attachment: fixed;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #141e30, #243b55);
+      color: white;
     }
 
     nav {
-      display: flex;
-      justify-content: flex-end;
+      background-color: rgba(0, 0, 0, 0.8);
       padding: 1rem 2rem;
-      background-color: rgba(0, 0, 0, 0.6);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     nav a {
-      color: #fff;
-      margin-left: 20px;
+      color: white;
       text-decoration: none;
+      margin-left: 20px;
       font-weight: 500;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover {
-      color: #00bfff;
     }
 
     h1 {
       text-align: center;
-      font-size: 2.5rem;
-      margin-top: 40px;
-      margin-bottom: 20px;
-      text-shadow: 0px 2px 10px rgba(0, 255, 255, 0.3);
+      margin: 2rem 0 1rem;
     }
 
-    .grid-container {
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      padding: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
       max-width: 1200px;
       margin: auto;
     }
 
     .card {
-      background-color: rgba(255, 255, 255, 0.05);
+      background-color: #2d2b4e;
+      padding: 1.5rem;
       border-radius: 10px;
-      padding: 30px;
       text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
       box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
     }
 
     .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 8px 20px rgba(0,255,255,0.2);
+      transform: scale(1.05);
     }
 
     .card i {
-      font-size: 3rem;
-      margin-bottom: 15px;
-      color: #00bfff;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #6bc1ff;
     }
 
     .card h3 {
-      margin-bottom: 15px;
-      font-size: 1.2rem;
+      margin-bottom: 1rem;
     }
 
     .card a {
-      text-decoration: none;
-      background-color: #00bfff;
+      display: inline-block;
+      padding: 10px 15px;
       color: white;
-      padding: 10px 20px;
+      background-color: #4e54c8;
       border-radius: 5px;
+      text-decoration: none;
       font-weight: bold;
-      transition: background-color 0.3s ease;
     }
 
     .card a:hover {
-      background-color: #0099cc;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: #aaa;
-      font-size: 0.9rem;
-      margin-top: 40px;
+      background-color: #6a67d9;
     }
   </style>
 </head>
 <body>
 
   <nav>
-    <a href="index.html"><i class="fas fa-home"></i> Home</a>
-    <a href="projects.html"><i class="fas fa-folder-open"></i> Projects</a>
-    <a href="skills.html"><i class="fas fa-brain"></i> Skills</a>
+    <div><strong>Ayodele's Portfolio</strong></div>
+    <div>
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="projects.html"><i class="fas fa-folder-open"></i> Projects</a>
+    </div>
   </nav>
 
-  <h1>My Certifications</h1>
+  <h1>Certifications</h1>
 
-  <div class="grid-container">
+  <div class="grid">
     <div class="card">
-      <i class="fab fa-google"></i>
+      <i class="fas fa-certificate"></i>
       <h3>Coursera</h3>
-      <a href="Coursera/index.html" target="_blank">View</a>
+      <a href="Coursera/index.html">View Certificates</a>
     </div>
+
     <div class="card">
-      <i class="fas fa-university"></i>
-      <h3>Deloitte Internship</h3>
-      <a href="Deloitte/index.html" target="_blank">View</a>
+      <i class="fas fa-building"></i>
+      <h3>Deloitte</h3>
+      <a href="Deloitte/index.html">View Certificates</a>
     </div>
+
     <div class="card">
-      <i class="fab fa-hackerrank"></i>
+      <i class="fas fa-terminal"></i>
       <h3>TryHackMe</h3>
-      <a href="TryHackMe/index.html" target="_blank">View</a>
+      <a href="TryHackMe/index.html">View Certificates</a>
     </div>
+
     <div class="card">
       <i class="fas fa-code"></i>
       <h3>GoMyCode</h3>
-      <a href="GoMyCode/index.html" target="_blank">View</a>
+      <a href="GoMyCode/index.html">View Certificates</a>
     </div>
   </div>
-
-  <footer>
-    &copy; 2025 Ayodele Oluwafemi. All rights reserved.
-  </footer>
 
 </body>
 </html>
