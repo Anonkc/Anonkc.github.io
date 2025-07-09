@@ -1,138 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ayodele Oluwafemi - Cybersecurity Portfolio</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ayodele Oluwafemi | Cybersecurity Portfolio</title>
   <style>
-    * {
-      box-sizing: border-box;
+    body {
       margin: 0;
       padding: 0;
-    }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: url('https://images.unsplash.com/photo-1614064641938-eb18a3fbdc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
-      background-size: cover;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
       color: #fff;
-    }
-    header {
-      background-color: rgba(0, 0, 0, 0.85);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    }
-    nav a {
-      color: #fff;
-      margin-left: 20px;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 1.1rem;
-    }
-    nav a:hover {
-      color: #00c6ff;
-    }
-    .hero {
+      font-family: 'Segoe UI', sans-serif;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
       text-align: center;
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 2rem;
     }
-    .hero h1 {
-      font-size: 3.5rem;
-      margin-bottom: 1rem;
-      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
-      animation: fadeIn 2s ease-in-out;
+    .intro {
+      max-width: 800px;
+      padding: 0 20px;
     }
-    .typewriter-text {
-      border-right: .15em solid #fff;
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+    .typewriter {
+      border-right: 2px solid #00ffff;
       white-space: nowrap;
       overflow: hidden;
-      width: 0;
-      animation:
-        typing 3s steps(40, end) forwards,
-        blink-caret .75s step-end infinite;
+      display: inline-block;
+      animation: typing 4s steps(30, end), blink 0.75s step-end infinite;
+      font-size: 2em;
+      color: #00ffff;
     }
     @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
+      from { width: 0; }
+      to { width: 100%; }
     }
-    @keyframes blink-caret {
-      from, to { border-color: transparent }
-      50% { border-color: white; }
+    @keyframes blink {
+      50% { border-color: transparent; }
     }
-    .hero p {
-      font-size: 1.3rem;
-      max-width: 800px;
-      margin-bottom: 2rem;
-      animation: fadeIn 3s ease-in-out;
+    p {
+      font-size: 1.1em;
+      line-height: 1.6;
     }
-    .hero .cta {
-      display: inline-block;
-      background-color: #00c6ff;
-      color: #fff;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      border-radius: 8px;
+    .buttons {
+      margin-top: 30px;
+    }
+    .buttons a {
       text-decoration: none;
+      color: #fff;
+      background-color: #00bcd4;
+      padding: 10px 20px;
+      border-radius: 8px;
+      margin: 10px;
+      display: inline-block;
       transition: background 0.3s;
-      animation: fadeIn 4s ease-in-out;
     }
-    .hero .cta:hover {
-      background-color: #0094c6;
-    }
-    .illustration {
-      margin-top: 2rem;
-      animation: fadeIn 4s ease-in-out;
-    }
-    .illustration img {
-      max-width: 320px;
-      border-radius: 20px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-    }
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(-20px); }
-      100% { opacity: 1; transform: translateY(0); }
+    .buttons a:hover {
+      background-color: #008c9e;
     }
     footer {
-      background-color: rgba(0, 0, 0, 0.7);
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
+      position: absolute;
+      bottom: 10px;
+      font-size: 0.9em;
       color: #ccc;
     }
   </style>
 </head>
 <body>
-  <header>
-    <div><strong>Ayodele Oluwafemi</strong></div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="certifications.html">Certifications</a>
-      <a href="skills.html">Skills</a>
-      <a href="projects.html">Projects</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
 
-  <section class="hero">
-    <h1 class="typewriter-text">Hi, I'm Ayodele Oluwafemi</h1>
-    <p>I am a passionate cybersecurity analyst with strong practical skills in incident response, penetration testing, and digital forensics. With training and certifications from top platforms like Google Coursera, TryHackMe, and Deloitte Virtual Internships, I bring real-world understanding to defending systems from modern threats. My portfolio showcases hands-on case studies and reports reflecting analytical thinking, threat response, and technical documentation skills.</p>
-    <a href="projects.html" class="cta">View My Projects</a>
-    <div class="illustration">
-      <img src="https://cdni.iconscout.com/illustration/premium/thumb/cyber-security-5718745-4789745.png" alt="Cybersecurity Illustration">
+  <div class="intro">
+    <h1><span class="typewriter">Ayodele Oluwafemi</span></h1>
+    <p>
+      I am a passionate cybersecurity analyst with strong practical skills in incident response,
+      penetration testing, and digital forensics. With training and certifications from top
+      platforms like Google Coursera, TryHackMe, and Deloitte Virtual Internships, I bring
+      real-world understanding to defending systems from modern threats. My portfolio
+      showcases hands-on case studies and reports reflecting analytical thinking, threat
+      response, and technical documentation skills.
+    </p>
+    <div class="buttons">
+      <a href="projects.html">View My Projects</a>
+      <a href="assets/profile.jpg" target="_blank">Cybersecurity Illustration</a>
     </div>
-  </section>
+  </div>
 
-  <footer>
-    &copy; 2025 Ayodele Oluwafemi. All rights reserved.
-  </footer>
+  <footer>© 2025 Ayodele Oluwafemi. All rights reserved.</footer>
+
 </body>
 </html>
