@@ -17,6 +17,7 @@
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       background-size: 400% 400%;
       animation: gradientBG 15s ease infinite;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     @keyframes gradientBG {
@@ -25,12 +26,32 @@
       100% { background-position: 0% 50%; }
     }
 
+    .dark-mode {
+      background: #121212;
+      color: #eee;
+    }
+
+    .dark-mode .folder {
+      background-color: rgba(255, 255, 255, 0.04);
+      box-shadow: 0 8px 16px rgba(255, 255, 255, 0.05);
+    }
+
+    .dark-mode nav a,
+    .dark-mode header div {
+      color: #00ffff;
+    }
+
+    .dark-mode .description {
+      color: #ccc;
+    }
+
     header {
       background-color: rgba(0, 0, 0, 0.6);
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
 
@@ -50,6 +71,26 @@
 
     nav a:hover {
       color: #fff;
+    }
+
+    .controls {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .controls button {
+      background-color: #00bcd4;
+      border: none;
+      padding: 10px 18px;
+      margin: 10px;
+      border-radius: 6px;
+      font-weight: bold;
+      color: black;
+      cursor: pointer;
+    }
+
+    .controls button:hover {
+      background-color: #009bb3;
     }
 
     main {
@@ -144,6 +185,11 @@
     </nav>
   </header>
 
+  <div class="controls">
+    <button onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+    <button onclick="window.print()">📄 Download as PDF</button>
+  </div>
+
   <main>
     <h1>🛡️ Explore My Cybersecurity Projects</h1>
 
@@ -173,5 +219,11 @@
       </div>
     </div>
   </main>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+  </script>
 </body>
 </html>
