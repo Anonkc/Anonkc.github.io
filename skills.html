@@ -31,18 +31,28 @@
       color: #00ffd5;
     }
 
-    ul {
-      list-style: none;
-      padding: 0;
+    .skill {
+      margin-bottom: 15px;
     }
 
-    li {
-      margin-bottom: 10px;
-      font-size: 1rem;
+    .skill-label {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
     }
 
-    .emoji {
-      margin-right: 8px;
+    .bar-container {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      height: 20px;
+    }
+
+    .bar {
+      height: 100%;
+      background: linear-gradient(90deg, #00ffd5, #00adb5);
+      width: 0;
+      transition: width 1.5s ease-in-out;
     }
 
     .nav {
@@ -74,40 +84,87 @@
 
   <div class="category">
     <h2>🧠 Technical Skills</h2>
-    <ul>
-      <li>🛠️ Penetration Testing – 85%</li>
-      <li>🔍 Threat Analysis – 75%</li>
-      <li>💻 Linux / CLI Tools – 90%</li>
-      <li>📄 ISO 27001 Implementation – 70%</li>
-      <li>🐍 Python Scripting – 65%</li>
-    </ul>
+    <div class="skill">
+      <div class="skill-label">🛠️ Penetration Testing <span>85%</span></div>
+      <div class="bar-container"><div class="bar" style="width: 85%;"></div></div>
+    </div>
+    <div class="skill">
+      <div class="skill-label">🔍 Threat Analysis <span>75%</span></div>
+      <div class="bar-container"><div class="bar" style="width: 75%;"></div></div>
+    </div>
+    <div class="skill">
+      <div class="skill-label">💻 Linux / CLI Tools <span>90%</span></div>
+      <div class="bar-container"><div class="bar" style="width: 90%;"></div></div>
+    </div>
+    <div class="skill">
+      <div class="skill-label">📄 ISO 27001 Implementation <span>70%</span></div>
+      <div class="bar-container"><div class="bar" style="width: 70%;"></div></div>
+    </div>
+    <div class="skill">
+      <div class="skill-label">🐍 Python Scripting <span>65%</span></div>
+      <div class="bar-container"><div class="bar" style="width: 65%;"></div></div>
+    </div>
   </div>
 
   <div class="category">
     <h2>🧰 Tools & Platforms</h2>
-    <ul>
-      <li>🌐 Wireshark & Nmap – 80%</li>
-      <li>🧨 Metasploit Framework – 75%</li>
-      <li>🕷️ Burp Suite – 70%</li>
-    </ul>
+    <div class="skill">
+      <div class="skill-label">🌐 Wireshark & Nmap <span>80%</span></div>
+      <div class="bar-container"><div class="bar" style="width: 80%;"></div></div>
+    </div>
+    <div class="skill">
+      <div class="skill-label">🧨 Metasploit Framework <span>75%</span></div>
+      <div class="bar-container"><div class="bar" style="width: 75%;"></div></div>
+    </div>
+    <div class="skill">
+      <div class="skill-label">🕷️ Burp Suite <span>70%</span></div>
+      <div class="bar-container"><div class="bar" style="width: 70%;"></div></div>
+    </div>
   </div>
 
   <div class="category">
     <h2>📚 Frameworks & Methodologies</h2>
-    <ul>
-      <li>🛡️ NIST Cybersecurity Framework – 65%</li>
-      <li>📜 OWASP Top 10 – 70%</li>
-      <li>⚔️ MITRE ATT&CK – 60%</li>
-    </ul>
+    <div class="skill">
+      <div class="skill-label">🛡️ NIST Cybersecurity Framework <span>65%</span></div>
+      <div class="bar-container"><div class="bar" style="width: 65%;"></div></div>
+    </div>
+    <div class="skill">
+      <div class="skill-label">📜 OWASP Top 10 <span>70%</span></div>
+      <div class="bar-container"><div class="bar" style="width: 70%;"></div></div>
+    </div>
+    <div class="skill">
+      <div class="skill-label">⚔️ MITRE ATT&CK <span>60%</span></div>
+      <div class="bar-container"><div class="bar" style="width: 60%;"></div></div>
+    </div>
   </div>
 
   <div class="category">
     <h2>🌟 Soft Skills</h2>
-    <ul>
-      <li>🧠 Analytical Thinking – 85%</li>
-      <li>📝 Report Writing – 80%</li>
-      <li>🤝 Team Collaboration – 75%</li>
-    </ul>
+    <div class="skill">
+      <div class="skill-label">🧠 Analytical Thinking <span>85%</span></div>
+      <div class="bar-container"><div class="bar" style="width: 85%;"></div></div>
+    </div>
+    <div class="skill">
+      <div class="skill-label">📝 Report Writing <span>80%</span></div>
+      <div class="bar-container"><div class="bar" style="width: 80%;"></div></div>
+    </div>
+    <div class="skill">
+      <div class="skill-label">🤝 Team Collaboration <span>75%</span></div>
+      <div class="bar-container"><div class="bar" style="width: 75%;"></div></div>
+    </div>
   </div>
+
+  <script>
+    // Animate all bars on page load
+    window.addEventListener("load", () => {
+      document.querySelectorAll(".bar").forEach(bar => {
+        const width = bar.style.width;
+        bar.style.width = "0";
+        setTimeout(() => {
+          bar.style.width = width;
+        }, 100);
+      });
+    });
+  </script>
 </body>
 </html>
