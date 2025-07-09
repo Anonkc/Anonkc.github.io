@@ -1,238 +1,98 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- Same head and styles as before, PLUS these updates -->
 <head>
-  <meta charset="UTF-8" />
-  <title>Skills - Ayodele Cyber</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  ...
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
-    /* Animated background */
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
-      color: #fff;
-      padding: 0 20px 50px;
-      transition: background-color 0.3s, color 0.3s;
+    ...
+    .skill-container {
+      ...
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s forwards;
     }
 
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    header {
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 15px 20px;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-
-    header a {
+    .skill-name i {
+      margin-right: 8px;
       color: #00ffff;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-
-    header a:hover {
-      color: white;
-    }
-
-    h1 {
-      text-align: center;
-      font-size: 2rem;
-      margin-top: 40px;
-      color: #00ffff;
-    }
-
-    h2 {
-      color: #ffecb3;
-      margin-top: 50px;
-      font-size: 1.3rem;
     }
 
     .skill-section {
       max-width: 900px;
       margin: 0 auto;
     }
-
-    .skill-container {
-      background-color: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 12px;
-      padding: 20px;
-      margin: 20px 0;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-      transition: transform 0.3s ease;
-    }
-
-    .skill-container:hover {
-      transform: translateY(-5px);
-    }
-
-    .skill-name {
-      font-weight: bold;
-      margin-bottom: 8px;
-    }
-
-    .bar {
-      background-color: #333;
-      border-radius: 5px;
-      overflow: hidden;
-      height: 20px;
-      margin-bottom: 10px;
-    }
-
-    .progress {
-      height: 100%;
-      background-color: #00bcd4;
-      text-align: right;
-      line-height: 20px;
-      color: #fff;
-      padding-right: 10px;
-      border-radius: 5px;
-      width: 0;
-      animation: fillBar 2s forwards;
-    }
-
-    @keyframes fillBar {
-      to { width: var(--width); }
-    }
-
-    .controls {
-      text-align: center;
-      margin-top: 30px;
-    }
-
-    .toggle-btn, .pdf-btn {
-      margin: 10px;
-      padding: 10px 20px;
-      border: none;
-      font-weight: bold;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    .toggle-btn {
-      background-color: #444;
-      color: white;
-    }
-
-    .pdf-btn {
-      background-color: #00bcd4;
-      color: black;
-    }
-
-    .dark-mode {
-      background-color: #121212;
-      color: #eee;
-    }
-
-    .dark-mode .bar {
-      background-color: #222;
-    }
-
-    .dark-mode .progress {
-      background-color: #2196f3;
-    }
-
-    .dark-mode header {
-      background-color: #1e1e1e;
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 1.6rem;
-      }
-
-      .skill-container {
-        padding: 15px;
-      }
-    }
   </style>
 </head>
+
+<!-- Inside body: (trimmed for focus) -->
 <body>
-
-  <header>
-    <a href="index.html"><i class="fas fa-home"></i> Home</a>
-    <a href="certifications.html"><i class="fas fa-certificate"></i> Certifications</a>
-    <a href="skills.html"><i class="fas fa-tools"></i> Skills</a>
-  </header>
-
-  <div class="controls">
-    <button class="toggle-btn" onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
-    <button class="pdf-btn" onclick="window.print()">📄 Download as PDF</button>
-  </div>
+  ...
 
   <h1>🚀 My Cybersecurity Skills</h1>
 
   <div class="skill-section">
+
     <h2>🧠 Technical Skills</h2>
-    <div class="skill-container">
-      <div class="skill-name">Penetration Testing</div>
+    <div class="skill-container" style="animation-delay: 0.1s">
+      <div class="skill-name"><i class="fas fa-shield-alt"></i> Penetration Testing</div>
       <div class="bar"><div class="progress" style="--width: 85%;">85%</div></div>
 
-      <div class="skill-name">Threat Analysis</div>
+      <div class="skill-name"><i class="fas fa-search"></i> Threat Analysis</div>
       <div class="bar"><div class="progress" style="--width: 75%;">75%</div></div>
 
-      <div class="skill-name">Linux / CLI Tools</div>
+      <div class="skill-name"><i class="fas fa-terminal"></i> Linux / CLI Tools</div>
       <div class="bar"><div class="progress" style="--width: 90%;">90%</div></div>
 
-      <div class="skill-name">ISO 27001 Implementation</div>
+      <div class="skill-name"><i class="fas fa-lock"></i> ISO 27001 Implementation</div>
       <div class="bar"><div class="progress" style="--width: 70%;">70%</div></div>
 
-      <div class="skill-name">Python Scripting</div>
+      <div class="skill-name"><i class="fas fa-code"></i> Python Scripting</div>
       <div class="bar"><div class="progress" style="--width: 65%;">65%</div></div>
     </div>
 
     <h2>🛠 Tools & Platforms</h2>
-    <div class="skill-container">
-      <div class="skill-name">Wireshark & Nmap</div>
+    <div class="skill-container" style="animation-delay: 0.3s">
+      <div class="skill-name"><i class="fas fa-network-wired"></i> Wireshark & Nmap</div>
       <div class="bar"><div class="progress" style="--width: 80%;">80%</div></div>
 
-      <div class="skill-name">Metasploit Framework</div>
+      <div class="skill-name"><i class="fas fa-bug"></i> Metasploit Framework</div>
       <div class="bar"><div class="progress" style="--width: 75%;">75%</div></div>
 
-      <div class="skill-name">Burp Suite</div>
+      <div class="skill-name"><i class="fas fa-fire"></i> Burp Suite</div>
       <div class="bar"><div class="progress" style="--width: 70%;">70%</div></div>
     </div>
 
     <h2>📚 Frameworks & Methodologies</h2>
-    <div class="skill-container">
-      <div class="skill-name">NIST Cybersecurity Framework</div>
+    <div class="skill-container" style="animation-delay: 0.5s">
+      <div class="skill-name"><i class="fas fa-diagram-project"></i> NIST Cybersecurity Framework</div>
       <div class="bar"><div class="progress" style="--width: 65%;">65%</div></div>
 
-      <div class="skill-name">OWASP Top 10</div>
+      <div class="skill-name"><i class="fas fa-exclamation-triangle"></i> OWASP Top 10</div>
       <div class="bar"><div class="progress" style="--width: 70%;">70%</div></div>
 
-      <div class="skill-name">MITRE ATT&CK</div>
+      <div class="skill-name"><i class="fas fa-sitemap"></i> MITRE ATT&CK</div>
       <div class="bar"><div class="progress" style="--width: 60%;">60%</div></div>
     </div>
 
     <h2>🤝 Soft Skills</h2>
-    <div class="skill-container">
-      <div class="skill-name">Analytical Thinking</div>
+    <div class="skill-container" style="animation-delay: 0.7s">
+      <div class="skill-name"><i class="fas fa-brain"></i> Analytical Thinking</div>
       <div class="bar"><div class="progress" style="--width: 85%;">85%</div></div>
 
-      <div class="skill-name">Report Writing</div>
+      <div class="skill-name"><i class="fas fa-pen-nib"></i> Report Writing</div>
       <div class="bar"><div class="progress" style="--width: 80%;">80%</div></div>
 
-      <div class="skill-name">Team Collaboration</div>
+      <div class="skill-name"><i class="fas fa-users"></i> Team Collaboration</div>
       <div class="bar"><div class="progress" style="--width: 75%;">75%</div></div>
     </div>
+
   </div>
 
-  <script>
-    function toggleDarkMode() {
-      document.body.classList.toggle("dark-mode");
-    }
-  </script>
-
+  ...
 </body>
-</html>
