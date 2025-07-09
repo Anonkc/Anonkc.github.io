@@ -1,48 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Coursera Certificates</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coursera Certifications</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      background-color: #f9f9f9;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: white;
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url('https://www.transparenttextures.com/patterns/black-linen.png');
+      background-size: cover;
+      background-attachment: fixed;
+      animation: fadeIn 1s ease-in;
     }
-    h1 {
-      color: #2c3e50;
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
-    li {
-      margin: 10px 0;
-    }
-    a {
-      text-decoration: none;
-      color: #007acc;
+
+    header {
+      text-align: center;
+      padding: 3rem 1rem 1rem;
+      font-size: 2.5rem;
       font-weight: bold;
+      text-shadow: 0 2px 5px #000;
     }
-    a:hover {
-      text-decoration: underline;
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
-    .back-link {
-      margin-top: 20px;
-      display: inline-block;
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1.5rem;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .card i {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #00acee;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card a {
+      text-decoration: none;
+      background: #00acee;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .card a:hover {
+      background: #0077b6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #ccc;
     }
   </style>
 </head>
+
 <body>
-  <h1>Coursera Certificates</h1>
-  <ul>
-    <li><a href="certificate1.pdf" target="_blank">Cybersecurity Certificate 1</a></li>
-    <li><a href="certificate2.pdf" target="_blank">Cybersecurity Certificate 2</a></li>
-    <li><a href="certificate3.pdf" target="_blank">Cybersecurity Certificate 3</a></li>
-    <li><a href="certificate4.pdf" target="_blank">Cybersecurity Certificate 4</a></li>
-    <li><a href="certificate5.pdf" target="_blank">Cybersecurity Certificate 5</a></li>
-    <li><a href="certificate6.pdf" target="_blank">Cybersecurity Certificate 6</a></li>
-    <li><a href="certificate7.pdf" target="_blank">Cybersecurity Certificate 7</a></li>
-    <li><a href="certificate8.pdf" target="_blank">Cybersecurity Certificate 8</a></li>
-    <li><a href="certificate9.pdf" target="_blank">Cybersecurity Certificate 9</a></li>
-  </ul>
-  
-  <a href="../index.html" class="back-link">← Back to Certifications</a>
+  <header>Coursera Certifications</header>
+  <div class="grid-container">
+    <div class="card">
+      <i class="fas fa-certificate"></i>
+      <h3>Google Cybersecurity</h3>
+      <a href="certificate1.pdf" target="_blank">View Certificate</a>
+    </div>
+    <div class="card">
+      <i class="fas fa-certificate"></i>
+      <h3>Security Analysis Fundamentals</h3>
+      <a href="certificate2.pdf" target="_blank">View Certificate</a>
+    </div>
+    <div class="card">
+      <i class="fas fa-certificate"></i>
+      <h3>Incident Response & SIEM</h3>
+      <a href="certificate3.pdf" target="_blank">View Certificate</a>
+    </div>
+    <div class="card">
+      <i class="fas fa-certificate"></i>
+      <h3>Tools of the Trade</h3>
+      <a href="certificate4.pdf" target="_blank">View Certificate</a>
+    </div>
+    <!-- Add more certificates as needed -->
+  </div>
+
+  <footer>
+    &copy; 2025 Ayodele Oluwafemi. All rights reserved.
+  </footer>
 </body>
+
 </html>
