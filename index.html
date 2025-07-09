@@ -19,8 +19,9 @@
     /* Navbar */
     nav {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
+      gap: 15px;
       background-color: #111;
       padding: 15px 0;
       font-size: 1rem;
@@ -47,18 +48,19 @@
     }
 
     h1 {
-      font-size: 2.5em;
+      font-size: 2.2em;
       margin-bottom: 10px;
     }
 
     .typewriter {
-      border-right: 2px solid #00ffff;
+      display: inline-block;
       white-space: nowrap;
       overflow: hidden;
-      display: inline-block;
-      animation: typing 4s steps(30, end), blink 0.75s step-end infinite;
+      border-right: 2px solid #00ffff;
       font-size: 2em;
       color: #00ffff;
+      animation: typing 4s steps(30, end), blink 0.75s step-end infinite;
+      max-width: 100%;
     }
 
     @keyframes typing {
@@ -94,12 +96,41 @@
       background-color: #008c9e;
     }
 
+    /* Illustration or About section */
+    .illustration {
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    .illustration img {
+      width: 90%;
+      max-width: 400px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+
     footer {
       text-align: center;
       padding: 20px;
       font-size: 0.9em;
       color: #ccc;
       margin-top: 60px;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.7em;
+      }
+
+      .typewriter {
+        font-size: 1.5em;
+      }
+
+      .buttons a {
+        font-size: 0.9em;
+        padding: 8px 16px;
+        margin: 8px;
+      }
     }
   </style>
 </head>
@@ -126,10 +157,16 @@
       showcases hands-on case studies and reports reflecting analytical thinking, threat
       response, and technical documentation skills.
     </p>
+
     <div class="buttons">
       <a href="projects.html">View My Projects</a>
-      <a href="assets/profile.jpg" target="_blank">Cybersecurity Illustration</a>
+      <a href="about.html">Learn More About Me</a>
     </div>
+  </div>
+
+  <!-- Optional Cybersecurity Illustration -->
+  <div class="illustration">
+    <img src="assets/cyber-illustration.jpg" alt="Cybersecurity Visual">
   </div>
 
   <footer>© 2025 Ayodele Oluwafemi. All rights reserved.</footer>
