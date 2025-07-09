@@ -1,43 +1,101 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>GoMyCode Certificates</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-            background-color: #f9f9f9;
-        }
-        h1 {
-            color: #2c3e50;
-        }
-        ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-        li {
-            margin: 10px 0;
-        }
-        a {
-            text-decoration: none;
-            color: #007acc;
-            font-weight: bold;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .back-link {
-            margin-top: 20px;
-            display: inline-block;
-            color: #333;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>GoMyCode Certifications</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #141e30, #243b55);
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    a.back-link {
+      display: inline-block;
+      margin-bottom: 30px;
+      color: #3498db;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    a.back-link i {
+      margin-right: 6px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #2c3e50;
+      border-radius: 10px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card i {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: #27ae60;
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+    }
+
+    .card a {
+      background: #3498db;
+      padding: 10px 18px;
+      text-decoration: none;
+      color: white;
+      border-radius: 6px;
+      font-weight: bold;
+      display: inline-block;
+    }
+
+    .card a:hover {
+      background: #2980b9;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <h1>GoMyCode Certificates</h1>
-    <ul>
-        <li><a href="GoMyCode_certificate.pdf" target="_blank">Introduction to Cybersecurity – GoMyCode (2023)</a></li>
-    </ul>
-    <a href="../index.html" class="back-link">← Back to Certifications</a>
+
+  <a href="../../certifications.html" class="back-link"><i class="fas fa-arrow-left"></i>Return to Certification</a>
+
+  <h1>GoMyCode Certifications</h1>
+
+  <div class="grid">
+    <div class="card">
+      <i class="fas fa-shield-halved"></i>
+      <h3>Introduction to Cybersecurity</h3>
+      <a href="gomycode_intro_cybersecurity.pdf" target="_blank"><i class="fas fa-file-pdf"></i> View Certificate</a>
+    </div>
+  </div>
+
 </body>
 </html>
