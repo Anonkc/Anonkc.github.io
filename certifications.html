@@ -6,132 +6,139 @@
   <title>My Certifications</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
-    /* Background Animation */
-    body {
+    body, html {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: #fff;
+      background: linear-gradient(120deg, #1e1e2f, #2a2a40);
+      background-size: cover;
+      background-attachment: fixed;
     }
 
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    header {
+    nav {
+      display: flex;
+      justify-content: flex-end;
+      padding: 1rem 2rem;
       background-color: rgba(0, 0, 0, 0.6);
-      padding: 30px;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
+    nav a {
       color: #fff;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
     }
 
-    .grid {
+    nav a:hover {
+      color: #00bfff;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      text-shadow: 0px 2px 10px rgba(0, 255, 255, 0.3);
+    }
+
+    .grid-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 30px;
-      padding: 60px 40px;
+      padding: 40px;
       max-width: 1200px;
-      margin: 0 auto;
+      margin: auto;
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 12px;
-      padding: 25px;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      padding: 30px;
       text-align: center;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-      transition: transform 0.3s ease;
-      backdrop-filter: blur(10px);
-      animation: fadeInUp 1s ease forwards;
-      opacity: 0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
     }
 
     .card:hover {
-      transform: translateY(-8px);
-    }
-
-    @keyframes fadeInUp {
-      from {
-        transform: translateY(20px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(0,255,255,0.2);
     }
 
     .card i {
-      font-size: 2.8rem;
-      margin-bottom: 10px;
-      color: #00d1ff;
+      font-size: 3rem;
+      margin-bottom: 15px;
+      color: #00bfff;
     }
 
     .card h3 {
-      margin: 10px 0;
-      font-size: 1.4rem;
-      color: #fff;
+      margin-bottom: 15px;
+      font-size: 1.2rem;
     }
 
     .card a {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 20px;
-      background-color: #00d1ff;
-      color: #000;
       text-decoration: none;
-      font-weight: bold;
+      background-color: #00bfff;
+      color: white;
+      padding: 10px 20px;
       border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
     }
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
+    .card a:hover {
+      background-color: #0099cc;
+    }
 
-      .card {
-        padding: 20px 15px;
-      }
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #aaa;
+      font-size: 0.9rem;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>My Certifications</h1>
-  </header>
 
-  <section class="grid">
+  <nav>
+    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="projects.html"><i class="fas fa-folder-open"></i> Projects</a>
+    <a href="skills.html"><i class="fas fa-brain"></i> Skills</a>
+  </nav>
+
+  <h1>My Certifications</h1>
+
+  <div class="grid-container">
     <div class="card">
       <i class="fab fa-google"></i>
       <h3>Coursera</h3>
-      <a href="Certifications/Coursera/index.html">View</a>
+      <a href="Coursera/index.html" target="_blank">View</a>
     </div>
     <div class="card">
-      <i class="fas fa-building-columns"></i>
+      <i class="fas fa-university"></i>
       <h3>Deloitte Internship</h3>
-      <a href="Certifications/Deloitte/index.html">View</a>
+      <a href="Deloitte/index.html" target="_blank">View</a>
     </div>
     <div class="card">
-      <i class="fas fa-user-secret"></i>
+      <i class="fab fa-hackerrank"></i>
       <h3>TryHackMe</h3>
-      <a href="Certifications/TryHackMe/index.html">View</a>
+      <a href="TryHackMe/index.html" target="_blank">View</a>
     </div>
     <div class="card">
       <i class="fas fa-code"></i>
       <h3>GoMyCode</h3>
-      <a href="Certifications/GoMyCode/index.html">View</a>
+      <a href="GoMyCode/index.html" target="_blank">View</a>
     </div>
-  </section>
+  </div>
+
+  <footer>
+    &copy; 2025 Ayodele Oluwafemi. All rights reserved.
+  </footer>
+
 </body>
 </html>
