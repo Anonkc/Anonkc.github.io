@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Web App Test Report - Kioptrix</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: white;
+      min-height: 100vh;
+      padding-bottom: 4rem;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    header div { font-weight: bold; font-size: 1.2rem; color: #00ffff; }
+
+    nav a {
+      color: #00ffff;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover { color: #fff; }
+
+    main {
+      padding: 2.5rem 2rem;
+      max-width: 950px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: #00ffff;
+    }
+
+    section {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: #00bcd4;
+    }
+
+    ul {
+      margin-top: 0.5rem;
+      padding-left: 1.5rem;
+    }
+
+    ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    a { color: #00ffff; text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      header { flex-direction: column; text-align: center; }
+      nav a { display: inline-block; margin: 10px 8px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>🕷️ Web App Test Report</div>
+    <nav>
+      <a href="../../index.html">Home</a>
+      <a href="../../projects.html">Projects</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1><i class="fas fa-bug"></i> Web App Test Report – Kioptrix Level 1</h1>
+
+    <section>
+      <h2>🛠️ Tool Used: Nikto</h2>
+      <p><strong>Target:</strong> <code>http://192.168.1.105</code> (Kioptrix Level 1)</p>
+      <p><strong>Findings Count:</strong> 30 items reported in 41 seconds</p>
+    </section>
+
+    <section>
+      <h2>📋 Key Findings</h2>
+      <ul>
+        <li>Outdated Apache version: <strong>Apache/1.3.20</strong></li>
+        <li>Outdated OpenSSL version: <strong>OpenSSL/0.9.6b</strong></li>
+        <li>Server leaks inodes via ETags – <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-1418">CVE-2003-1418</a></li>
+        <li>Missing <code>X-Frame-Options</code> and <code>X-Content-Type-Options</code> headers</li>
+        <li>Allowed HTTP Methods: <code>GET, HEAD, OPTIONS, TRACE</code></li>
+        <li><strong>TRACE enabled:</strong> Vulnerable to Cross Site Tracing – <a href="https://owasp.org/www-community/attacks/Cross_Site_Tracing">OWASP</a></li>
+        <li><strong>XSS via Expect header:</strong> <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-3918">CVE-2006-3918</a></li>
+        <li>Directory listing found in: <code>/manual/</code>, <code>/icons/</code></li>
+        <li>Apache default file exposed: <code>/icons/README</code></li>
+        <li>PHP file managers/backdoors found in multiple WordPress paths</li>
+        <li>Backdoor: <code>/shell?cat+/etc/hosts</code> allows command execution</li>
+        <li>Credentials exposed in <code>#wp-config.php#</code> file</li>
+        <li>RCE in D-Link router page: <code>/login.cgi</code></li>
+        <li>Possible Webalizer XSS – <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2001-0835">CVE-2001-0835</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>⚠️ Vulnerabilities Summary</h2>
+      <ul>
+        <li>Apache DoS and RCE in versions < 1.3.27</li>
+        <li>mod_ssl buffer overflow (potential remote shell)</li>
+        <li>Multiple XSS risks from outdated or exposed components</li>
+        <li>Exposed sensitive files and unrestricted directory access</li>
+        <li>Exploitable PHP backdoors (RCE, LFI)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>✅ Recommendations</h2>
+      <ul>
+        <li>Upgrade Apache, mod_ssl, and OpenSSL to latest secure versions</li>
+        <li>Disable TRACE method via Apache config</li>
+        <li>Implement proper HTTP headers: <code>X-Frame-Options</code>, <code>X-Content-Type-Options</code></li>
+        <li>Delete or restrict access to default files like <code>/icons/README</code></li>
+        <li>Remove or secure exposed PHP backdoor files</li>
+        <li>Harden WordPress configuration and remove sensitive backup files</li>
+        <li>Block direct access to <code>#wp-config.php#</code> via .htaccess</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
