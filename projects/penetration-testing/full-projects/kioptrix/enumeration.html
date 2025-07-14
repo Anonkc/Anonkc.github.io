@@ -6,105 +6,135 @@
   <title>Enumeration & Discovery - Kioptrix</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
+      display: flex;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: white;
+      min-height: 100vh;
+    }
+
+    aside {
+      width: 260px;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 2rem 1rem;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+    }
+
+    aside h2 {
+      font-size: 1.4rem;
+      color: #00ffff;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    aside ul {
+      list-style: none;
+    }
+
+    aside li {
+      margin-bottom: 1rem;
+    }
+
+    aside a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      display: block;
+      padding: 10px;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+    }
+
+    aside a:hover {
+      background-color: rgba(0, 255, 255, 0.2);
+      color: #00ffff;
+    }
+
+    main {
+      flex-grow: 1;
       padding: 2rem;
     }
 
     h1 {
-      font-size: 2.3rem;
+      font-size: 2rem;
+      margin-bottom: 1rem;
       color: #00ffff;
-      margin-bottom: 1.5rem;
     }
 
     h2 {
-      font-size: 1.5rem;
-      margin-top: 2rem;
+      margin-top: 1.5rem;
       color: #00bcd4;
     }
 
     ul {
-      margin-top: 1rem;
       padding-left: 1.5rem;
+      margin-top: 0.8rem;
     }
 
     ul li {
-      margin-bottom: 0.7rem;
+      margin-bottom: 0.5rem;
     }
 
     code {
       background: rgba(255, 255, 255, 0.1);
       padding: 2px 6px;
       border-radius: 4px;
-      font-family: monospace;
     }
 
-    a {
-      color: #00ffff;
-      text-decoration: underline;
-    }
-
-    nav {
-      margin-bottom: 2rem;
-    }
-
-    nav a {
-      color: #00ffff;
-      margin-right: 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    section {
-      margin-bottom: 2rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid rgba(255,255,255,0.2);
+    iframe {
+      width: 100%;
+      height: 500px;
+      margin-top: 1rem;
+      border: 2px solid #00ffff;
+      border-radius: 10px;
     }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="index.html">← Back to Kioptrix Dashboard</a>
-  </nav>
-
-  <h1><i class="fas fa-search"></i> Enumeration & Discovery</h1>
-
-  <section>
-    <h2>Initial Network Services</h2>
+  <aside>
+    <h2><i class="fas fa-server"></i> Kioptrix L1</h2>
     <ul>
-      <li>Target IP: <code>192.168.59.130</code></li>
-      <li>Port 22 (SSH) - Open</li>
-      <li>Port 80 (HTTP) - Apache running</li>
-      <li>Port 139/445 - Samba file sharing service detected</li>
+      <li><a href="nmap.html"><i class="fas fa-sitemap"></i> Nmap Scan</a></li>
+      <li><a href="enumeration.html"><i class="fas fa-search"></i> Enumeration & Discovery</a></li>
+      <li><a href="vulnerabilities.html"><i class="fas fa-exclamation-triangle"></i> Vulnerabilities</a></li>
+      <li><a href="exploit.html"><i class="fas fa-bug"></i> Exploitation</a></li>
+      <li><a href="privesc.html"><i class="fas fa-user-shield"></i> Privilege Escalation</a></li>
     </ul>
-  </section>
+  </aside>
 
-  <section>
-    <h2>Directory Discovery & Web Recon</h2>
+  <main>
+    <h1><i class="fas fa-search"></i> Enumeration & Discovery</h1>
+
+    <h2>Network Service Findings</h2>
     <ul>
-      <li>Apache test page visible on <code>http://192.168.59.130</code></li>
-      <li>phpMyAdmin interface found at <code>/phpmyadmin</code> — accessible without credentials</li>
+      <li>Port 80 - Apache/1.3.20 (Default test page)</li>
+      <li>Port 22 - OpenSSH 2.9p2</li>
+      <li>Port 139/445 - Samba (SMBv1)</li>
     </ul>
-  </section>
 
-  <section>
-    <h2><i class="fas fa-globe"></i> Nikto Scan Results</h2>
+    <h2>Directory & Web Enumeration</h2>
     <ul>
-      <li>Apache version: <code>Apache/1.3.20</code> — outdated and vulnerable</li>
-      <li>Multiple XSS and information disclosure issues found</li>
-      <li>phpMyAdmin version: <code>2.2.6</code> — known for remote code execution bugs</li>
-      <li>Default Apache test page leaks server version</li>
-      <li>Indexed directory access not disabled</li>
+      <li>Directory found: <code>/phpmyadmin</code> – No authentication required</li>
+      <li>Visible server banner discloses software versions</li>
     </ul>
-    <p>You can <a href="../assets/kioptrix/nikto_scan.pdf" target="_blank">download the full Nikto scan report here</a> (optional if hosting PDF).</p>
-  </section>
 
+    <h2><i class="fas fa-globe"></i> Nikto Web App Scan</h2>
+    <ul>
+      <li>Outdated Apache version with known vulnerabilities</li>
+      <li>phpMyAdmin 2.2.6 with known RCE bugs</li>
+      <li>Multiple XSS & information disclosures</li>
+      <li>Apache test page accessible</li>
+    </ul>
+
+    <h2>Full Nikto Report (PDF)</h2>
+    <iframe src="../../assets/kioptrix/nikto_scan.pdf" frameborder="0"></iframe>
+  </main>
 </body>
 </html>
-
