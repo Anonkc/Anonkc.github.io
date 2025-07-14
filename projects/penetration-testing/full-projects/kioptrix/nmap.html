@@ -77,6 +77,27 @@
       border: 2px solid #00ffff;
       border-radius: 10px;
     }
+
+    .download-link {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 10px 16px;
+      background-color: #00bcd4;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .download-link:hover {
+      background-color: #0097a7;
+    }
+
+    @media (max-width: 600px) {
+      aside { width: 100px; padding: 1rem 0.5rem; }
+      main { padding: 1rem; }
+      iframe { height: 300px; }
+    }
   </style>
 </head>
 <body>
@@ -115,7 +136,7 @@ PORT     STATE SERVICE
 
     <h2>Full Nmap Report (PDF)</h2>
     <iframe src="nmap_scan.pdf" frameborder="0"></iframe>
+    <a class="download-link" href="nmap_scan.pdf" target="_blank"><i class="fas fa-file-download"></i> Download Nmap PDF</a>
   </main>
 </body>
 </html>
-
