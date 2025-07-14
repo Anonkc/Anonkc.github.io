@@ -1,1 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vulnerabilities - Kioptrix</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      display: flex;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      min-height: 100vh;
+    }
+
+    aside {
+      width: 260px;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 2rem 1rem;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+    }
+
+    aside h2 {
+      font-size: 1.4rem;
+      color: #00ffff;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    aside ul { list-style: none; }
+    aside li { margin-bottom: 1rem; }
+    aside a {
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      padding: 10px;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+    }
+    aside a:hover {
+      background-color: rgba(0, 255, 255, 0.2);
+      color: #00ffff;
+    }
+
+    main {
+      flex-grow: 1;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #00ffff;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      margin-top: 1.5rem;
+      color: #00bcd4;
+    }
+
+    ul {
+      margin-top: 1rem;
+      padding-left: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.8rem;
+    }
+
+    code {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <aside>
+    <h2><i class="fas fa-server"></i> Kioptrix L1</h2>
+    <ul>
+      <li><a href="nmap.html"><i class="fas fa-sitemap"></i> Nmap Scan</a></li>
+      <li><a href="enumeration.html"><i class="fas fa-search"></i> Enumeration & Discovery</a></li>
+      <li><a href="vulnerabilities.html"><i class="fas fa-exclamation-triangle"></i> Vulnerabilities</a></li>
+      <li><a href="exploit.html"><i class="fas fa-bug"></i> Exploitation</a></li>
+      <li><a href="privesc.html"><i class="fas fa-user-shield"></i> Privilege Escalation</a></li>
+    </ul>
+  </aside>
+
+  <main>
+    <h1><i class="fas fa-exclamation-triangle"></i> Identified Vulnerabilities</h1>
+
+    <h2>Apache/1.3.20</h2>
+    <ul>
+      <li>Outdated web server version vulnerable to buffer overflows and directory traversal attacks</li>
+      <li>Publicly accessible test page exposing internal configuration</li>
+    </ul>
+
+    <h2>phpMyAdmin 2.2.6</h2>
+    <ul>
+      <li>No authentication required to access the dashboard</li>
+      <li>Known RCE exploits exist for this version</li>
+    </ul>
+
+    <h2>Samba smbd 2.2.1a</h2>
+    <ul>
+      <li>Vulnerable to remote code execution via null session exploits</li>
+      <li>SMB shares possibly accessible without authentication</li>
+    </ul>
+
+    <h2>General Web Misconfigurations</h2>
+    <ul>
+      <li>Directory indexing not disabled</li>
+      <li>Lack of input sanitization on the web server</li>
+    </ul>
+  </main>
+</body>
+</html>
 
