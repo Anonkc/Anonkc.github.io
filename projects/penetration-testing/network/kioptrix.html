@@ -1,1 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kioptrix Network Scan</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: white;
+      min-height: 100vh;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    header div {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #00ffff;
+    }
+
+    nav a {
+      color: #00ffff;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover { color: #fff; }
+
+    main {
+      padding: 2.5rem 2rem;
+      max-width: 950px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: #00ffff;
+    }
+
+    section {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: #00bcd4;
+    }
+
+    ul {
+      margin-top: 0.5rem;
+      padding-left: 1.5rem;
+    }
+
+    ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    a {
+      color: #00ffff;
+      text-decoration: underline;
+    }
+
+    code {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      header { flex-direction: column; text-align: center; }
+      nav a { display: inline-block; margin: 10px 8px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>🌐 Kioptrix Network Scan</div>
+    <nav>
+      <a href="../../index.html">Home</a>
+      <a href="../network-scan.html">← Back to Network Reports</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1><i class="fas fa-network-wired"></i> Nmap Scan Report – Kioptrix</h1>
+
+    <section>
+      <h2>🔎 Target Info</h2>
+      <ul>
+        <li><strong>Target IP:</strong> <code>192.168.59.130</code></li>
+        <li><strong>Scan Tool:</strong> Nmap 7.94SVN</li>
+        <li><strong>OS Detected:</strong> Linux 2.4.9 – 2.4.18 (likely embedded)</li>
+        <li><strong>Network Distance:</strong> 1 hop</li>
+        <li><strong>Scan Duration:</strong> 27.46 seconds</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>📋 Open Ports and Services</h2>
+      <ul>
+        <li><code>22/tcp</code> – SSH (OpenSSH 2.9p2, supports SSHv1)</li>
+        <li><code>80/tcp</code> – HTTP (Apache/1.3.20, Red-Hat/Linux)</li>
+        <li><code>111/tcp</code> – rpcbind v2</li>
+        <li><code>139/tcp</code> – NetBIOS/SMB (Samba smbd)</li>
+        <li><code>443/tcp</code> – HTTPS (Apache/1.3.20 + OpenSSL/0.9.6b)</li>
+        <li><code>32768/tcp</code> – RPC Status (RPC #100024)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>⚠️ Notable Findings</h2>
+      <ul>
+        <li>Apache test page exposed</li>
+        <li>SSLv2 enabled with weak cipher support</li>
+        <li>Self-signed SSL certificate expired (2010)</li>
+        <li>TRACE method allowed (may be vulnerable to XST)</li>
+        <li>SSH supports outdated SSHv1</li>
+        <li>Samba/NetBIOS open — could allow null session or enumeration</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>✅ Recommendations</h2>
+      <ul>
+        <li>Upgrade Apache, OpenSSL, and SSH services</li>
+        <li>Disable insecure protocols: SSLv2, SSHv1</li>
+        <li>Remove or replace expired certificates</li>
+        <li>Restrict access to unnecessary ports (e.g., 139, 32768)</li>
+        <li>Disable TRACE method via Apache config</li>
+        <li>Harden Samba configuration and disable null sessions</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
 
