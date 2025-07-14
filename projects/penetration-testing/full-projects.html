@@ -76,13 +76,24 @@
       background-color: #00ffff;
       color: #000;
     }
+
+    @media (max-width: 600px) {
+      header {
+        font-size: 1.5rem;
+        padding: 1rem;
+      }
+      .container {
+        padding: 1rem;
+        gap: 1.2rem;
+      }
+    }
   </style>
 </head>
 <body>
   <header>📂 Full Pentest Project Reports</header>
 
   <div class="container">
-    <!-- Kioptrix Project -->
+    <!-- Kioptrix Project Card -->
     <div class="card">
       <i class="fas fa-server"></i>
       <h3>Kioptrix L1</h3>
@@ -90,10 +101,10 @@
       <a href="kioptrix/index.html">View Project</a>
     </div>
 
-    <!-- Placeholder for Future Projects -->
+    <!-- Placeholder Project Card -->
     <div class="card">
       <i class="fas fa-network-wired"></i>
-      <h3>Project Placeholder</h3>
+      <h3>Future Project</h3>
       <p>Initial foothold, exploitation, and root access via XYZ technique.</p>
       <a href="#">Coming Soon</a>
     </div>
