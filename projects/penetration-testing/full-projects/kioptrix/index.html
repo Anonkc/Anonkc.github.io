@@ -1,99 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kioptrix Level 1</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kioptrix Full Project</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      display: flex;
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-      color: #fff;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: white;
       min-height: 100vh;
+      padding: 2rem;
     }
 
-    aside {
-      width: 260px;
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 2rem 1rem;
-      box-shadow: 2px 0 10px rgba(0,0,0,0.3);
-    }
-
-    aside h2 {
-      font-size: 1.4rem;
-      color: #00ffff;
-      margin-bottom: 1.5rem;
-      text-align: center;
-    }
-
-    aside ul {
-      list-style: none;
-    }
-
-    aside li {
-      margin-bottom: 1rem;
-    }
-
-    aside a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-      display: block;
-      padding: 10px;
-      border-radius: 8px;
-      transition: background 0.2s ease;
-    }
-
-    aside a:hover {
-      background-color: rgba(0, 255, 255, 0.2);
-      color: #00ffff;
-    }
-
-    main {
-      flex-grow: 1;
-      padding: 3rem 2rem;
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     h1 {
-      font-size: 2.3rem;
+      text-align: center;
+      margin-bottom: 2rem;
       color: #00ffff;
-      margin-bottom: 1rem;
     }
 
-    p {
-      font-size: 1.1rem;
-      line-height: 1.7;
+    ul {
+      list-style: none;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0;
     }
+
+    li {
+      background-color: rgba(255, 255, 255, 0.08);
+      margin: 1rem 0;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    li:hover { transform: translateY(-5px); }
+
+    li i {
+      font-size: 1.5rem;
+      margin-right: 15px;
+      color: #00bcd4;
+    }
+
+    li a {
+      text-decoration: none;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    li a:hover { color: #00ffff; }
   </style>
 </head>
 <body>
-  <aside>
-    <h2><i class="fas fa-server"></i> Kioptrix L1</h2>
-    <ul>
-      <li><a href="nmap.html"><i class="fas fa-sitemap"></i> Nmap Scan</a></li>
-      <li><a href="enumeration.html"><i class="fas fa-search"></i> Enumeration & Discovery</a></li>
-      <li><a href="vulnerabilities.html"><i class="fas fa-exclamation-triangle"></i> Vulnerabilities</a></li>
-      <li><a href="exploit.html"><i class="fas fa-bug"></i> Exploitation</a></li>
-      <li><a href="privesc.html"><i class="fas fa-user-shield"></i> Privilege Escalation</a></li>
-    </ul>
-  </aside>
-
-  <main>
-    <h1><i class="fas fa-folder-open"></i> Kioptrix Level 1 – Full Report</h1>
-    <p>
-      This section provides a complete walkthrough of the Kioptrix Level 1 vulnerable machine.
-      The links in the sidebar offer step-by-step documentation of each stage, from initial reconnaissance
-      to privilege escalation. Each section is designed to be modular so you can study or present specific
-      segments of the process independently.
-    </p>
-  </main>
+  <h1><i class="fas fa-flag"></i> Kioptrix: Full Project Breakdown</h1>
+  <ul>
+    <li><i class="fas fa-network-wired"></i><a href="nmap.html">Network Scan Report</a></li>
+    <li><i class="fas fa-search"></i><a href="enumeration.html">Enumeration & Discovery</a></li>
+    <li><i class="fas fa-exclamation-triangle"></i><a href="vulnerabilities.html">Vulnerability Assessment</a></li>
+    <li><i class="fas fa-bug"></i><a href="exploit.html">Exploitation Process</a></li>
+    <li><i class="fas fa-user-lock"></i><a href="privesc.html">Privilege Escalation</a></li>
+  </ul>
 </body>
 </html>
