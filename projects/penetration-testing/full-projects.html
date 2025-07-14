@@ -15,22 +15,27 @@
       min-height: 100vh;
       padding: 2rem;
     }
+
     @keyframes gradientBG {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
+
     h1 {
       text-align: center;
       color: #00ffff;
       margin-bottom: 2rem;
+      font-size: 2rem;
     }
+
     ul {
       list-style: none;
       max-width: 800px;
       margin: 0 auto;
       padding: 0;
     }
+
     li {
       background-color: rgba(255, 255, 255, 0.08);
       margin: 1rem 0;
@@ -38,28 +43,79 @@
       border-radius: 12px;
       display: flex;
       align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
       transition: transform 0.3s ease;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
-    li:hover { transform: translateY(-5px); }
+
+    li:hover {
+      transform: translateY(-5px);
+    }
+
     li i {
       font-size: 1.5rem;
       margin-right: 15px;
       color: #00bcd4;
     }
+
     li a {
       text-decoration: none;
       color: white;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: bold;
+      flex-grow: 1;
     }
-    li a:hover { color: #00ffff; }
+
+    li a:hover {
+      color: #00ffff;
+    }
+
+    .coming-soon {
+      color: #ccc;
+      font-style: italic;
+      font-size: 0.95rem;
+      margin-top: 0.5rem;
+      width: 100%;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      li {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+      }
+
+      li i {
+        margin-bottom: 0.5rem;
+      }
+
+      li a {
+        margin-bottom: 0.5rem;
+      }
+    }
   </style>
 </head>
 <body>
   <h1><i class="fas fa-folder-open"></i> Full Penetration Testing Projects</h1>
   <ul>
-    <li><i class="fas fa-laptop-code"></i><a href="full-projects/kioptrix/index.html">Kioptrix Full Project</a></li>
+    <li>
+      <i class="fas fa-laptop-code"></i>
+      <a href="full-projects/kioptrix/index.html">Kioptrix Full Project</a>
+    </li>
+    <li>
+      <i class="fas fa-tools"></i>
+      <a href="#">Coming Soon</a>
+      <div class="coming-soon">New projects will be added here soon. Stay tuned!</div>
+    </li>
   </ul>
 </body>
 </html>
