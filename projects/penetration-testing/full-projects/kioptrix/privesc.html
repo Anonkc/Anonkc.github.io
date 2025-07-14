@@ -2,123 +2,118 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Privilege Escalation - Kioptrix</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
+      display: flex;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
       color: white;
-      margin: 0;
-      padding: 0;
+      min-height: 100vh;
     }
-
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    header {
-      padding: 1rem 2rem;
+    aside {
+      width: 260px;
       background-color: rgba(0, 0, 0, 0.6);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      padding: 2rem 1rem;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.3);
     }
-
-    header div {
-      font-weight: bold;
-      font-size: 1.2rem;
+    aside h2 {
+      font-size: 1.4rem;
       color: #00ffff;
+      margin-bottom: 1.5rem;
+      text-align: center;
     }
-
-    nav a {
-      color: #00ffff;
+    aside ul { list-style: none; }
+    aside li { margin-bottom: 1rem; }
+    aside a {
+      color: #fff;
       text-decoration: none;
-      margin-left: 20px;
-      font-weight: 500;
+      display: block;
+      padding: 10px;
+      border-radius: 8px;
+      transition: background 0.2s ease;
     }
-
-    nav a:hover { color: #ffffff; }
-
+    aside a:hover {
+      background-color: rgba(0, 255, 255, 0.2);
+      color: #00ffff;
+    }
     main {
+      flex-grow: 1;
       padding: 2rem;
-      max-width: 900px;
-      margin: auto;
     }
-
     h1 {
-      text-align: center;
+      font-size: 2rem;
       color: #00ffff;
-      font-size: 2.2rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
     }
-
     h2 {
-      text-align: center;
-      font-size: 1.2rem;
-      font-weight: 400;
-      color: #cfeef5;
-      margin-bottom: 2rem;
+      margin-top: 1.5rem;
+      color: #00bcd4;
     }
-
-    .screenshot {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    .screenshot img {
-      width: 100%;
-      max-width: 600px;
+    img {
+      max-width: 100%;
       border-radius: 10px;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+      margin: 1rem 0;
+      border: 2px solid #00bcd4;
     }
-
-    .download {
-      text-align: center;
-      margin-top: 2rem;
+    iframe {
+      width: 100%;
+      height: 500px;
+      margin-top: 1rem;
+      border: 2px solid #00ffff;
+      border-radius: 10px;
     }
-
-    .download a {
-      color: #00ffff;
-      text-decoration: underline;
+    a.download-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 10px 15px;
+      background-color: #00bcd4;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
       font-weight: bold;
     }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 1.8rem; }
-      h2 { font-size: 1rem; }
+    a.download-btn:hover {
+      background-color: #00ffff;
+      color: #000;
     }
   </style>
 </head>
 <body>
-  <header>
-    <div>🔐 Privilege Escalation</div>
-    <nav>
-      <a href="../../../index.html">Home</a>
-      <a href="../../../projects/penetration-testing/full-projects.html">Back</a>
-    </nav>
-  </header>
-
+  <aside>
+    <h2><i class="fas fa-server"></i> Kioptrix L1</h2>
+    <ul>
+      <li><a href="nmap.html"><i class="fas fa-sitemap"></i> Nmap Scan</a></li>
+      <li><a href="enumeration.html"><i class="fas fa-search"></i> Enumeration & Discovery</a></li>
+      <li><a href="vulnerabilities.html"><i class="fas fa-exclamation-triangle"></i> Vulnerabilities</a></li>
+      <li><a href="exploit.html"><i class="fas fa-bug"></i> Exploitation</a></li>
+      <li><a href="privesc.html"><i class="fas fa-user-shield"></i> Privilege Escalation</a></li>
+    </ul>
+  </aside>
   <main>
-    <h1><i class="fas fa-user-shield"></i> Privilege Escalation – Kioptrix</h1>
-    <h2>Post-exploitation techniques to gain root access</h2>
+    <h1><i class="fas fa-user-shield"></i> Privilege Escalation</h1>
 
-    <section class="screenshot">
-      <img src="privesc-1.jpeg" alt="Privilege escalation attempt 1" />
-      <img src="privesc-2.jpeg" alt="Privilege escalation attempt 2" />
-    </section>
+    <h2>Summary</h2>
+    <p>
+      After gaining initial access via the Samba trans2open exploit, privilege escalation was achieved through a misconfigured SUID binary. 
+      The 'nmap' utility was found with the SUID bit set. By leveraging its interactive mode (!sh), we gained a root shell.
+    </p>
+    <ul>
+      <li>Identified vulnerable SUID binary: <code>nmap</code></li>
+      <li>Executed: <code>nmap --interactive</code> → <code>!sh</code></li>
+      <li>Successfully escalated privileges to root.</li>
+    </ul>
 
-    <div class="download">
-      <p>If the images are not loading or for more detail, <a href="kioptrix_privesc_logbook.pdf" target="_blank">click here to download the PDF</a>.</p>
-    </div>
+    <h2>Proof</h2>
+    <img src="privesc-1.jpg" alt="Privesc Step 1">
+    <img src="privesc-2.jpg" alt="Privesc Step 2">
+
+    <h2>Full Privesc Report (PDF)</h2>
+    <iframe src="kioptrix_privesc_summary.pdf" frameborder="0"></iframe>
+    <a href="kioptrix_privesc_summary.pdf" class="download-btn" download>Download PDF Report</a>
   </main>
 </body>
 </html>
