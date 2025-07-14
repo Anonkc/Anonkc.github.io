@@ -6,7 +6,8 @@
   <title>Privilege Escalation - Kioptrix</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
       display: flex;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -14,18 +15,21 @@
       color: white;
       min-height: 100vh;
     }
+
     aside {
       width: 260px;
       background-color: rgba(0, 0, 0, 0.6);
       padding: 2rem 1rem;
       box-shadow: 2px 0 10px rgba(0,0,0,0.3);
     }
+
     aside h2 {
       font-size: 1.4rem;
       color: #00ffff;
       margin-bottom: 1.5rem;
       text-align: center;
     }
+
     aside ul { list-style: none; }
     aside li { margin-bottom: 1rem; }
     aside a {
@@ -40,45 +44,72 @@
       background-color: rgba(0, 255, 255, 0.2);
       color: #00ffff;
     }
+
     main {
       flex-grow: 1;
       padding: 2rem;
     }
+
     h1 {
       font-size: 2rem;
       color: #00ffff;
       margin-bottom: 1rem;
     }
+
     h2 {
       margin-top: 1.5rem;
       color: #00bcd4;
     }
-    img {
-      max-width: 100%;
-      border-radius: 10px;
-      margin: 1rem 0;
-      border: 2px solid #00bcd4;
+
+    p {
+      margin-top: 1rem;
+      line-height: 1.6;
     }
+
+    .proof-images {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .proof-images img {
+      max-width: 100%;
+      width: 300px;
+      border: 2px solid #00ffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
     iframe {
       width: 100%;
       height: 500px;
-      margin-top: 1rem;
+      margin-top: 2rem;
       border: 2px solid #00ffff;
       border-radius: 10px;
     }
-    a.download-btn {
+
+    a.download-link {
       display: inline-block;
       margin-top: 1rem;
-      padding: 10px 15px;
       background-color: #00bcd4;
-      color: #fff;
-      text-decoration: none;
+      padding: 0.6rem 1.2rem;
+      color: white;
       border-radius: 8px;
+      text-decoration: none;
       font-weight: bold;
     }
-    a.download-btn:hover {
+
+    a.download-link:hover {
       background-color: #00ffff;
       color: #000;
+    }
+
+    @media (max-width: 768px) {
+      body { flex-direction: column; }
+      aside { width: 100%; text-align: center; }
+      main { padding: 1.5rem; }
+      .proof-images { justify-content: center; }
     }
   </style>
 </head>
@@ -93,27 +124,28 @@
       <li><a href="privesc.html"><i class="fas fa-user-shield"></i> Privilege Escalation</a></li>
     </ul>
   </aside>
+
   <main>
     <h1><i class="fas fa-user-shield"></i> Privilege Escalation</h1>
 
-    <h2>Summary</h2>
     <p>
-      After gaining initial access via the Samba trans2open exploit, privilege escalation was achieved through a misconfigured SUID binary. 
-      The 'nmap' utility was found with the SUID bit set. By leveraging its interactive mode (!sh), we gained a root shell.
+      After successfully exploiting the Samba vulnerability and gaining a low-privileged shell, the next step was to identify a method to escalate privileges.
+      By enumerating SUID binaries and kernel version, I discovered an old kernel vulnerability that was exploitable using a known local root exploit.
     </p>
-    <ul>
-      <li>Identified vulnerable SUID binary: <code>nmap</code></li>
-      <li>Executed: <code>nmap --interactive</code> → <code>!sh</code></li>
-      <li>Successfully escalated privileges to root.</li>
-    </ul>
+    <p>
+      The exploit was uploaded to the target and compiled. Once executed, it successfully escalated privileges to root.
+      I confirmed root access by checking the user ID and accessing the root flag.
+    </p>
 
-    <h2>Proof</h2>
-    <img src="privesc-1.jpeg" alt="Privesc Step 1">
-    <img src="privesc-2.jpeg" alt="Privesc Step 2">
+    <h2>Proof of Privilege Escalation</h2>
+    <div class="proof-images">
+      <img src="privesc-1.jpg" alt="Root Shell Access">
+      <img src="privesc-2.jpg" alt="Root Flag Captured">
+    </div>
 
-    <h2>Full Privesc Report (PDF)</h2>
-    <iframe src="kioptrix_privesc_summary.pdf" frameborder="0"></iframe>
-    <a href="kioptrix_privesc_summary.pdf" class="download-btn" download>Download PDF Report</a>
+    <h2>Full Summary (PDF)</h2>
+    <iframe src="privesc_report.pdf" frameborder="0"></iframe>
+    <a class="download-link" href="privesc_report.pdf" download>📥 Download PDF</a>
   </main>
 </body>
 </html>
