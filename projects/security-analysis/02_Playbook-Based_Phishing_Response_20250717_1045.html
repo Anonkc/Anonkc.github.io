@@ -1,21 +1,20 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Phishing Response - SOC Playbook</title>
+  <title>Phishing Incident Response</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      margin: 0;
-      padding: 2rem;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       background-size: 400% 400%;
       animation: gradientBG 15s ease infinite;
       color: white;
-      line-height: 1.6;
+      min-height: 100vh;
     }
 
     @keyframes gradientBG {
@@ -24,76 +23,64 @@
       100% { background-position: 0% 50%; }
     }
 
-    h1, h2 {
+    header {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    header div { font-weight: bold; font-size: 1.2rem; color: #00ffff; }
+
+    nav a {
+      color: #00ffff;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover { color: #fff; }
+
+    main {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h1 {
       text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
       color: #00ffff;
     }
 
-    section {
-      margin: 2rem auto;
-      padding: 1.5rem;
-      border: 1px solid #00ffff33;
-      border-radius: 8px;
-      max-width: 900px;
-      background-color: rgba(0, 0, 0, 0.3);
-    }
-
-    p {
-      margin: 1rem 0;
-    }
-
-    table {
+    iframe {
       width: 100%;
-      border-collapse: collapse;
-      margin-top: 1rem;
+      height: 1000px;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
     }
 
-    table, th, td {
-      border: 1px solid #00ffff55;
-    }
-
-    th, td {
-      padding: 0.75rem;
-      text-align: left;
-    }
-
-    img {
-      max-width: 100%;
-      border-radius: 6px;
-      margin-top: 1rem;
+    @media (max-width: 768px) {
+      iframe { height: 700px; }
     }
   </style>
 </head>
 <body>
-  <h1><i class="fas fa-envelope-open-text"></i> Phishing Incident Response Report</h1>
+  <header>
+    <div><i class="fas fa-user-shield"></i> Phishing Response</div>
+    <nav>
+      <a href="../../index.html">Home</a>
+      <a href="../../projects.html">Projects</a>
+    </nav>
+  </header>
 
-  <section>
-    <h2>Incident Overview</h2>
-    <p>An alert was received for a suspicious email with a password-protected spreadsheet attachment. Analysis revealed the file to be malicious, triggering the phishing incident response playbook.</p>
-  </section>
-
-  <section>
-    <h2>Playbook-Based Actions</h2>
-    <table>
-      <tr><th>Step</th><th>Action Taken</th></tr>
-      <tr><td>Identification</td><td>Malicious SHA256 hash confirmed via VirusTotal</td></tr>
-      <tr><td>Containment</td><td>User account disabled, system isolated from the network</td></tr>
-      <tr><td>Eradication</td><td>Malicious file removed, full scan performed</td></tr>
-      <tr><td>Recovery</td><td>System restored, user access reinstated after validation</td></tr>
-      <tr><td>Communication</td><td>IT and security teams notified, alert ticket updated</td></tr>
-      <tr><td>Post-Incident</td><td>Playbook documentation updated, employee training advised</td></tr>
-    </table>
-  </section>
-
-  <section>
-    <h2>Evidence - Escalated Ticket</h2>
-    <p>Below is the screenshot of the SOC ticket showing the analysis results and escalation status.</p>
-    <img src="ticket_escalated.png" alt="Escalated Incident Ticket Screenshot"/>
-  </section>
-
-  <section>
-    <h2>Conclusion</h2>
-    <p>This incident showcases the importance of structured response through an established playbook. Rapid identification, containment, and internal coordination ensured minimal impact and system integrity.</p>
-  </section>
+  <main>
+    <h1><i class="fas fa-envelope-open-text"></i> Playbook-Based Phishing Incident Report</h1>
+    <iframe src="Phishing_Incident_Report.pdf"></iframe>
+  </main>
 </body>
 </html>
