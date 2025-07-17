@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Security Analysis Reports</title>
+  <title>Security Analysis</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -32,7 +32,11 @@
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
 
-    header div { font-weight: bold; font-size: 1.2rem; color: #00ffff; }
+    header div {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #00ffff;
+    }
 
     nav a {
       color: #00ffff;
@@ -52,15 +56,8 @@
     h1 {
       text-align: center;
       font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: #00ffff;
-    }
-
-    p.intro {
-      text-align: center;
       margin-bottom: 2rem;
-      font-size: 1.1rem;
-      color: #ccf;
+      color: #00ffff;
     }
 
     ul {
@@ -106,24 +103,19 @@
 </head>
 <body>
   <header>
-    <div><i class="fas fa-shield-alt"></i> Security Analysis</div>
+    <div>🧠 Security Analysis</div>
     <nav>
       <a href="../../index.html">Home</a>
       <a href="../../projects.html">Projects</a>
-      <a href="../../about.html">About</a>
-      <a href="../../contact.html">Contact</a>
     </nav>
   </header>
 
   <main>
-    <h1><i class="fas fa-chart-bar"></i> Security Analysis Reports</h1>
-    <p class="intro">Explore my collection of hands-on security analysis projects—from real-time threat detection and malware investigations to vulnerability assessments and policy-based responses.</p>
-
+    <h1><i class="fas fa-shield-alt"></i> Security Analysis Reports</h1>
     <ul>
-      <li><i class="fas fa-usb"></i><a href="05_USB_Drive_Threat_Assessment_Rhetorical_Hospital.html">USB Threat Analysis – Rhetorical Hospital</a></li>
-      <li><i class="fas fa-bug"></i><a href="01_Hash-Based_Malware_Analysis_(VirusTotal)_20250717_1045.html">Malware Investigation – SHA256 Hash (VirusTotal)</a></li>
-      <li><i class="fas fa-shield-alt"></i><a href="02_Playbook-Based_Phishing_Response_20250717_1045.html">Phishing Response – SOC Playbook</a></li>
-      <li><i class="fas fa-exclamation-triangle"></i><a href="04_Vulnerability_Assessment_–_Public_Database_Exposure_20250717_1045.html">Vulnerability Assessment – Public Database</a></li>
+      <li><i class="fas fa-bug"></i><a href="media/phishing-incident-report.pdf" target="_blank">Phishing Incident Report</a></li>
+      <li><i class="fas fa-shield-virus"></i><a href="media/vulnerability-assessment.pdf" target="_blank">Vulnerability Assessment Report</a></li>
+      <li><i class="fas fa-usb"></i><a href="media/usb-attack-report.pdf" target="_blank">Parking Lot USB Report</a></li>
     </ul>
   </main>
 </body>
