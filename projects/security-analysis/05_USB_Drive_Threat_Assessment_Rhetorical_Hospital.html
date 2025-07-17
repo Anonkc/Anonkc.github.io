@@ -1,75 +1,86 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>USB Drive Threat Assessment - Rhetorical Hospital</title>
+  <title>USB Threat Report</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      margin: 0;
-      padding: 2rem;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #2c3e50, #4ca1af);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       background-size: 400% 400%;
       animation: gradientBG 15s ease infinite;
-      color: #fff;
-      line-height: 1.6;
+      color: white;
+      min-height: 100vh;
     }
+
     @keyframes gradientBG {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
-    h1, h2 {
+
+    header {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    header div { font-weight: bold; font-size: 1.2rem; color: #00ffff; }
+
+    nav a {
+      color: #00ffff;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover { color: #fff; }
+
+    main {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h1 {
       text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
       color: #00ffff;
     }
-    section {
-      margin: 2rem auto;
-      padding: 1.5rem;
-      border: 1px solid #00ffff33;
-      border-radius: 8px;
-      max-width: 900px;
-      background-color: rgba(0, 0, 0, 0.3);
+
+    iframe {
+      width: 100%;
+      height: 1000px;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
     }
-    p {
-      margin: 1rem 0;
-    }
-    ul {
-      margin-left: 1.5rem;
+
+    @media (max-width: 768px) {
+      iframe { height: 700px; }
     }
   </style>
 </head>
 <body>
-  <h1><i class="fas fa-usb"></i> USB Drive Threat Assessment Report</h1>
-  <h2>Rhetorical Hospital - Virtualized USB Analysis</h2>
+  <header>
+    <div><i class="fas fa-usb"></i> USB Drive Threat Report</div>
+    <nav>
+      <a href="../../index.html">Home</a>
+      <a href="../../projects.html">Projects</a>
+    </nav>
+  </header>
 
-  <section>
-    <h2>Scenario Overview</h2>
-    <p>A suspicious USB drive was found in the parking lot of Rhetorical Hospital. As a member of the cybersecurity team, the USB was analyzed using a virtual machine to prevent possible infection of live systems.</p>
-  </section>
-
-  <section>
-    <h2>Contents</h2>
-    <p>Some documents appeared to contain personal information that Jorge wouldn’t want to be made public. Other files included PII of hospital staff and internal documents related to hospital operations and workflows.</p>
-  </section>
-
-  <section>
-    <h2>Attacker Mindset</h2>
-    <p>The attacker could use timesheets or employee records to gather intelligence about staff routines. This information could enable targeted phishing or impersonation attacks. For example, an attacker could craft emails that appear to come from a known coworker, increasing the chance of a successful social engineering attempt.</p>
-  </section>
-
-  <section>
-    <h2>Risk Analysis</h2>
-    <ul>
-      <li><strong>Managerial Control:</strong> Promote employee training on USB safety and reporting protocols.</li>
-      <li><strong>Operational Control:</strong> Enforce regular antivirus scans across all devices, especially lab/testing environments.</li>
-      <li><strong>Technical Control:</strong> Disable AutoPlay on corporate machines to prevent auto-execution of files.</li>
-      <li><strong>Policy Enforcement:</strong> Restrict USB testing to trained IT staff in sandboxed environments.</li>
-    </ul>
-  </section>
-
+  <main>
+    <h1><i class="fas fa-biohazard"></i> USB Threat Simulation Report</h1>
+    <iframe src="Parking_Lot_USB_Report.pdf"></iframe>
+  </main>
 </body>
 </html>
