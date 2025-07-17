@@ -6,7 +6,11 @@
   <title>Security Analysis</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -45,7 +49,9 @@
       font-weight: 500;
     }
 
-    nav a:hover { color: #fff; }
+    nav a:hover {
+      color: #fff;
+    }
 
     main {
       padding: 3rem 2rem;
@@ -76,7 +82,9 @@
       transition: transform 0.3s ease;
     }
 
-    li:hover { transform: translateY(-6px); }
+    li:hover {
+      transform: translateY(-6px);
+    }
 
     li i {
       font-size: 1.8rem;
@@ -88,22 +96,32 @@
     li a {
       text-decoration: none;
       color: white;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: bold;
     }
 
-    li a:hover { color: #00ffff; }
+    li a:hover {
+      color: #00ffff;
+    }
 
     @media (max-width: 600px) {
-      h1 { font-size: 2rem; }
-      header { flex-direction: column; text-align: center; }
-      nav a { display: inline-block; margin: 10px 8px; }
+      h1 {
+        font-size: 2rem;
+      }
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+      nav a {
+        display: inline-block;
+        margin: 10px 8px;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <div>🧠 Security Analysis</div>
+    <div><i class="fas fa-shield-alt"></i> Security Analysis</div>
     <nav>
       <a href="../../index.html">Home</a>
       <a href="../../projects.html">Projects</a>
@@ -111,11 +129,18 @@
   </header>
 
   <main>
-    <h1><i class="fas fa-shield-alt"></i> Security Analysis Reports</h1>
+    <h1><i class="fas fa-chart-bar"></i> Security Analysis Reports</h1>
     <ul>
-      <li><i class="fas fa-bug"></i><a href="Phishing_Incident_Report.pdf" target="_blank">Phishing Incident Report</a></li>
-      <li><i class="fas fa-shield-virus"></i><a href="Vulnerability_Assessment_Report.pdf" target="_blank">Vulnerability Assessment Report</a></li>
-      <li><i class="fas fa-usb"></i><a href="Parking_Lot_Usb_Report.pdf" target="_blank">Parking Lot USB Report</a></li>
+      <li><i class="fas fa-file-pdf"></i><a href="Phishing_Incident_Report.pdf" target="_blank">Phishing Incident Report (PDF)</a></li>
+      <li><i class="fas fa-globe"></i><a href="02_Playbook-Based_Phishing_Response_20250717_1045.html" target="_blank">Phishing Response Playbook (HTML)</a></li>
+
+      <li><i class="fas fa-file-pdf"></i><a href="Vulnerability_Assessment_Report.pdf" target="_blank">Vulnerability Assessment (PDF)</a></li>
+      <li><i class="fas fa-database"></i><a href="04_Vulnerability_Assessment-Public_Database_Exposure_20250717_1045.html" target="_blank">Database Exposure Assessment (HTML)</a></li>
+
+      <li><i class="fas fa-file-pdf"></i><a href="Parking_Lot_USB_Report.pdf" target="_blank">USB Parking Lot Report (PDF)</a></li>
+      <li><i class="fas fa-usb"></i><a href="05_USB_Drive_Threat_Assessment_Rhetorical_Hospital.html" target="_blank">USB Threat Simulation Report (HTML)</a></li>
+
+      <li><i class="fas fa-bug"></i><a href="01_Hash-Based_Malware_Analysis_(VirusTotal)_20250717_1045.html" target="_blank">VirusTotal Malware Hash Report (HTML)</a></li>
     </ul>
   </main>
 </body>
