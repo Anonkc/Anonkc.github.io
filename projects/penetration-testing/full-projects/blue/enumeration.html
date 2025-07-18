@@ -1,99 +1,83 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Enumeration Report</title>
+  <title>Enumeration & Discovery</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: white;
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: white;
-      display: flex;
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
       min-height: 100vh;
-    }
-    aside {
-      width: 250px;
-      background-color: #111;
-      padding: 1rem;
-    }
-    aside h2 {
-      color: #00ffff;
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
-    }
-    aside ul {
-      list-style: none;
-      padding: 0;
-    }
-    aside ul li {
-      margin: 1rem 0;
-    }
-    aside ul li a {
-      color: white;
-      text-decoration: none;
-    }
-    main {
-      flex: 1;
       padding: 2rem;
     }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     h1 {
+      text-align: center;
       color: #00ffff;
     }
-    .image-container {
-      margin-top: 1rem;
+
+    .content {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
     }
-    .image-container img {
-      max-width: 100%;
-      height: auto;
-      border: 2px solid #00ffff;
-      margin-bottom: 2rem;
-    }
-    .pdf-container {
-      margin-top: 1rem;
-    }
-    iframe {
+
+    img {
       width: 100%;
-      height: 500px;
-      border: none;
-      background: white;
-    }
-    .download-btn {
+      border-radius: 8px;
       margin-top: 1rem;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    a.download-link {
       display: inline-block;
-      background-color: #00ffff;
-      padding: 10px 20px;
-      color: black;
-      border-radius: 4px;
+      margin-top: 1rem;
+      color: #00ffff;
       text-decoration: none;
-      font-weight: bold;
+      border: 1px solid #00ffff;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+    }
+
+    a.download-link:hover {
+      background: #00ffff;
+      color: #000;
     }
   </style>
 </head>
 <body>
-  <aside>
-    <h2>Blue: Breakdown</h2>
-    <ul>
-      <li><a href="../nmap-scan.html"><i class="fas fa-network-wired"></i> Nmap Scan</a></li>
-      <li><a href="../enumeration.html"><i class="fas fa-search"></i> Enumeration</a></li>
-      <li><a href="../vulnerabilities.html"><i class="fas fa-exclamation-triangle"></i> Vulnerabilities</a></li>
-      <li><a href="../exploitation.html"><i class="fas fa-bug"></i> Exploitation</a></li>
-      <li><a href="../privilege-escalation.html"><i class="fas fa-user-shield"></i> Privilege Escalation</a></li>
-    </ul>
-  </aside>
-  <main>
-    <h1>Enumeration Report</h1>
-    <p>This section details the enumeration steps on the target host.</p>
-    <div class="image-container">
-      <img src="IMG-20250718-WA0003.jpg" alt="Enumeration Report Screenshot">
-    </div>
-    <div class="pdf-container">
-      <iframe src="../nmap-report.pdf"></iframe>
-    </div>
-    <a href="../nmap-report.pdf" class="download-btn" download>Download Full Enumeration Report (PDF)</a>
-  </main>
+  <h1><i class="fa-solid fa-search"></i> Enumeration & Discovery</h1>
+
+  <div class="content">
+    <p>After completing the Nmap scan, we identified that the target machine (192.168.79.140) was running Microsoft Windows 7 SP1 with SMB (port 445) exposed. This was our first clue that the machine could be vulnerable to well-known exploits like MS17-010 (EternalBlue).</p>
+
+    <p>To investigate further, we conducted manual research. Using Google, we searched terms such as <strong>“windows 7 smb 445 vulnerability exploit”</strong>. This led us to a Rapid7 blog post detailing the EternalBlue vulnerability affecting SMBv1.</p>
+
+    <p>To confirm the target’s exposure, we used the Metasploit module <code>auxiliary/scanner/smb/smb_pipe</code> to enumerate named pipes. The target responded successfully, revealing accessible SMB services and confirming the OS version. This enumeration helped validate that the target was exploitable and ready for the next phase of the assessment.</p>
+
+    <img src="images/002.jpg" alt="SMB Enumeration Screenshot"/>
+
+    <a class="download-link" href="downloads/Enumeration_and_discovery.pdf" download>
+      <i class="fa-solid fa-file-arrow-down"></i> Download PDF Report
+    </a>
+  </div>
 </body>
 </html>
