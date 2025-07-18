@@ -1,1 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blue: Full Project Breakdown</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: white;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      text-align: center;
+      color: #00ffff;
+      margin-bottom: 2rem;
+    }
+
+    .section {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .btn {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 1rem;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+      color: white;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .btn i {
+      font-size: 1.5rem;
+      color: #00ffff;
+    }
+  </style>
+</head>
+<body>
+  <h1><i class="fa-solid fa-flag"></i> Blue: Full Project Breakdown</h1>
+
+  <div class="section">
+    <a href="nmap.html" class="btn"><i class="fa-solid fa-network-wired"></i> Network Scan Report</a>
+    <a href="enumeration.html" class="btn"><i class="fa-solid fa-search"></i> Enumeration & Discovery</a>
+    <a href="vulnerability.html" class="btn"><i class="fa-solid fa-triangle-exclamation"></i> Vulnerability Assessment</a>
+    <a href="exploitation.html" class="btn"><i class="fa-solid fa-bug"></i> Exploitation Process</a>
+    <a href="privesc.html" class="btn"><i class="fa-solid fa-user-shield"></i> Privilege Escalation</a>
+  </div>
+</body>
+</html>
 
