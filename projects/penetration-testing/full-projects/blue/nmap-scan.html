@@ -1,99 +1,147 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Nmap Scan Report</title>
+  <title>Nmap Scan</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: white;
       display: flex;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: white;
       min-height: 100vh;
     }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     aside {
       width: 250px;
-      background-color: #111;
-      padding: 1rem;
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 1.5rem;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.2);
     }
+
     aside h2 {
       color: #00ffff;
-      font-size: 1.2rem;
       margin-bottom: 1rem;
     }
-    aside ul {
-      list-style: none;
-      padding: 0;
-    }
-    aside ul li {
-      margin: 1rem 0;
-    }
-    aside ul li a {
+
+    aside a {
+      display: block;
       color: white;
       text-decoration: none;
+      margin: 0.5rem 0;
     }
-    main {
-      flex: 1;
-      padding: 2rem;
-    }
-    h1 {
+
+    aside a:hover {
       color: #00ffff;
     }
-    .image-container {
-      margin-top: 1rem;
+
+    main {
+      flex-grow: 1;
+      padding: 2rem;
     }
-    .image-container img {
-      max-width: 100%;
-      height: auto;
-      border: 2px solid #00ffff;
-      margin-bottom: 2rem;
+
+    h1 {
+      text-align: center;
+      color: #00ffff;
     }
-    .pdf-container {
-      margin-top: 1rem;
+
+    .content {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
     }
-    iframe {
+
+    img {
       width: 100%;
-      height: 500px;
-      border: none;
-      background: white;
-    }
-    .download-btn {
+      border-radius: 8px;
       margin-top: 1rem;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    ul {
+      margin-top: 1rem;
+      padding-left: 1.2rem;
+    }
+
+    ul li {
+      margin-bottom: 0.6rem;
+    }
+
+    a.download-link {
       display: inline-block;
-      background-color: #00ffff;
-      padding: 10px 20px;
-      color: black;
-      border-radius: 4px;
+      margin-top: 1rem;
+      color: #00ffff;
       text-decoration: none;
-      font-weight: bold;
+      border: 1px solid #00ffff;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+    }
+
+    a.download-link:hover {
+      background: #00ffff;
+      color: #000;
+    }
+
+    pre {
+      background: rgba(255,255,255,0.1);
+      padding: 0.5rem;
+      border-radius: 5px;
+      overflow-x: auto;
     }
   </style>
 </head>
 <body>
   <aside>
-    <h2>Blue: Breakdown</h2>
-    <ul>
-      <li><a href="../nmap-scan.html"><i class="fas fa-network-wired"></i> Nmap Scan</a></li>
-      <li><a href="../enumeration.html"><i class="fas fa-search"></i> Enumeration</a></li>
-      <li><a href="../vulnerabilities.html"><i class="fas fa-exclamation-triangle"></i> Vulnerabilities</a></li>
-      <li><a href="../exploitation.html"><i class="fas fa-bug"></i> Exploitation</a></li>
-      <li><a href="../privilege-escalation.html"><i class="fas fa-user-shield"></i> Privilege Escalation</a></li>
-    </ul>
+    <h2><i class="fas fa-folder-open"></i> Sections</h2>
+    <a href="nmap-scan.html"><i class="fas fa-network-wired"></i> Nmap Scan</a>
+    <a href="enumeration.html"><i class="fas fa-search"></i> Enumeration</a>
+    <a href="vulnerabilities.html"><i class="fas fa-exclamation-triangle"></i> Vulnerabilities</a>
+    <a href="exploitation.html"><i class="fas fa-bug"></i> Exploitation</a>
+    <a href="privilege-escalation.html"><i class="fas fa-user-shield"></i> Privilege Escalation</a>
   </aside>
   <main>
-    <h1>Nmap Scan Report</h1>
-    <p>This section details the Nmap scan performed on the target host.</p>
-    <div class="image-container">
-      <img src="IMG-20250718-WA0002.jpg" alt="Nmap Scan Report Screenshot">
+    <h1><i class="fa-solid fa-network-wired"></i> Nmap Scan Report</h1>
+
+    <div class="content">
+      <p>In the network scanning phase, we used <strong>Nmap</strong> to gather crucial details about the target machine, including open ports, running services, and the operating system fingerprint.</p>
+
+      <p>The scan command used was:</p>
+      <pre>nmap -sV -sC -Pn -T4 &lt;target-ip&gt;</pre>
+
+      <p><strong>Key discoveries:</strong></p>
+      <ul>
+        <li>Open port: <strong>445/tcp</strong> running Microsoft Windows SMB service</li>
+        <li>Detected OS: <strong>Windows 7 or Server 2008</strong></li>
+        <li>Service Version & SMBv1 support revealed</li>
+        <li>Helpful script outputs from default Nmap scripts</li>
+      </ul>
+
+      <p>This discovery informed our next phase — identifying the SMB vulnerability using the OS and port information, leading us to search for exploits based on the Windows 7 + SMBv1 stack.</p>
+
+      <img src="IMG-20250718-WA0009.jpg" alt="Nmap Scan Result">
+      <img src="nmap-report.pdf" alt="Nmap Scan Result">
+
+      <a class="download-link" href="downloads/Nmap.pdf" download>
+        <i class="fa-solid fa-file-arrow-down"></i> Download Full Nmap Report (PDF)
+      </a>
     </div>
-    <div class="pdf-container">
-      <iframe src="../nmap-report.pdf"></iframe>
-    </div>
-    <a href="../nmap-report.pdf" class="download-btn" download>Download Full Nmap Scan Report (PDF)</a>
   </main>
 </body>
 </html>
