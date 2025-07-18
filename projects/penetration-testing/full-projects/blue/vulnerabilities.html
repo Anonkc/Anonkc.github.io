@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vulnerability Assessment</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      display: flex;
+      min-height: 100vh;
+    }
+    aside {
+      width: 250px;
+      background-color: #111;
+      padding: 1rem;
+    }
+    aside h2 {
+      color: #00ffff;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    aside ul {
+      list-style: none;
+      padding: 0;
+    }
+    aside ul li {
+      margin: 1rem 0;
+    }
+    aside ul li a {
+      color: white;
+      text-decoration: none;
+    }
+    main {
+      flex: 1;
+      padding: 2rem;
+    }
+    h1 {
+      color: #00ffff;
+    }
+    .image-container {
+      margin-top: 1rem;
+    }
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+      border: 2px solid #00ffff;
+      margin-bottom: 2rem;
+    }
+    .pdf-container {
+      margin-top: 1rem;
+    }
+    iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+      background: white;
+    }
+    .download-btn {
+      margin-top: 1rem;
+      display: inline-block;
+      background-color: #00ffff;
+      padding: 10px 20px;
+      color: black;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <aside>
+    <h2>Blue: Breakdown</h2>
+    <ul>
+      <li><a href="../nmap-scan.html"><i class="fas fa-network-wired"></i> Nmap Scan</a></li>
+      <li><a href="../enumeration.html"><i class="fas fa-search"></i> Enumeration</a></li>
+      <li><a href="../vulnerabilities.html"><i class="fas fa-exclamation-triangle"></i> Vulnerabilities</a></li>
+      <li><a href="../exploitation.html"><i class="fas fa-bug"></i> Exploitation</a></li>
+      <li><a href="../privilege-escalation.html"><i class="fas fa-user-shield"></i> Privilege Escalation</a></li>
+    </ul>
+  </aside>
+  <main>
+    <h1>Vulnerability Assessment</h1>
+    <p>This section details the vulnerabilities identified on the target host.</p>
+    <div class="image-container">
+      <img src="IMG-20250718-WA0005.jpg" alt="Vulnerability Assessment Screenshot">
+    </div>
+    <div class="pdf-container">
+      <iframe src="../nmap-report.pdf"></iframe>
+    </div>
+    <a href="../nmap-report.pdf" class="download-btn" download>Download Full Vulnerability Assessment (PDF)</a>
+  </main>
+</body>
+</html>
