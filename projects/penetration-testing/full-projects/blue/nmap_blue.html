@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blue - Nmap Scan</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      padding: 2rem;
+    }
+    h1 {
+      color: #00ffff;
+      text-align: center;
+    }
+    .content {
+      background-color: #1e2a38;
+      padding: 1.5rem;
+      border-radius: 10px;
+      max-width: 900px;
+      margin: auto;
+    }
+    pre {
+      background-color: #000;
+      color: #0f0;
+      padding: 1rem;
+      border-radius: 10px;
+      overflow-x: auto;
+    }
+    .image-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+    .image-grid img {
+      max-width: 100%;
+      height: auto;
+      border: 2px solid #00ffff;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔍 Nmap Scan - Blue</h1>
+  <div class="content">
+    <p>This section documents the initial network scan performed on the Blue machine using <code>nmap</code>. A comprehensive OS and service detection scan was done with <code>-A -T4</code> flags.</p>
+
+    <h3>📄 Scan Output</h3>
+    <pre>
+# Nmap Scan Report for Blue
+
+Target IP: 192.168.79.140
+Scan Type: -T4 -A -v
+Detected OS: Windows 7 Ultimate Service Pack 1 (Windows 7 Ultimate 6.1)
+Open Ports: 135, 139, 445, 49152, 49153, 49154, 49155, 49156, 49157
+
+Vulnerability: MS17-010 (EternalBlue)
+Workgroup: WORKGROUP
+MAC Address: VMware (00:0c:29:4b:26:a8)
+SMBv1: Enabled
+SMB Security: Guest access enabled
+
+Conclusion: Host is vulnerable to EternalBlue - confirmed by auxiliary and exploit modules in Metasploit.
+    </pre>
+
+    <div class="image-grid">
+      <img src="blue_kali_sc/nmap.png" alt="Nmap Scan Screenshot">
+    </div>
+  </div>
+</body>
+</html>
