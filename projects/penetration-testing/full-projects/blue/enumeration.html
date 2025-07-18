@@ -1,82 +1,55 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Enumeration & Discovery</title>
+  <title>Nmap Scan Report - Blue</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
-      color: white;
       min-height: 100vh;
-      display: flex;
-    }
-
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    .sidebar {
-      width: 250px;
-      background-color: #111;
-      padding: 20px;
-      height: 100vh;
-      position: fixed;
-    }
-
-    .sidebar a {
-      display: block;
-      padding: 10px;
-      color: white;
-      text-decoration: none;
-      margin-bottom: 5px;
-      border-left: 4px solid transparent;
-    }
-
-    .sidebar a:hover {
-      background-color: #333;
-      border-left: 4px solid #00ffff;
-    }
-
-    .content {
-      margin-left: 270px;
       padding: 2rem;
-      flex-grow: 1;
     }
-
-    h1 {
+    h1, h2 {
       color: #00ffff;
+      text-align: center;
     }
-
-    .screenshot {
-      max-width: 100%;
-      height: auto;
-      margin: 1rem 0;
-      border: 1px solid #fff;
+    iframe {
+      border: 2px solid #00ffff;
+      border-radius: 8px;
+      display: block;
+      margin: 20px auto;
+    }
+    .download-btn {
+      display: block;
+      width: fit-content;
+      margin: 20px auto;
+      padding: 12px 20px;
+      background-color: #00ffff;
+      color: #000;
+      font-weight: bold;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+    .download-btn:hover {
+      background-color: #00cccc;
     }
   </style>
 </head>
 <body>
-  <div class="sidebar">
-    <h2>Blue: Breakdown</h2>
-    <a href="nmap.html"><i class="fas fa-network-wired"></i> Nmap Scan</a>
-    <a href="enumeration.html"><i class="fas fa-search"></i> Enumeration</a>
-    <a href="vulnerabilities.html"><i class="fas fa-exclamation-triangle"></i> Vulnerabilities</a>
-    <a href="exploitation.html"><i class="fas fa-bug"></i> Exploitation</a>
-    <a href="privesc.html"><i class="fas fa-user-shield"></i> Privilege Escalation</a>
-  </div>
-  <div class="content">
-    <h1>Enumeration & Discovery</h1>
-    <p>Details of services and protocols discovered during enumeration.</p>
-    
-  </div>
+  <h1>Blue: Breakdown</h1>
+  <h2>Nmap Scan Report</h2>
+  <p style="text-align: center;">This section details the Nmap scan performed on the target host.</p>
+
+  <iframe src="../../pdf/Nmap_Scan_Report_Blue.pdf" width="100%" height="600px"></iframe>
+
+  <a href="../../pdf/Nmap_Scan_Report_Blue.pdf" download class="download-btn">
+    <i class="fa fa-file-download"></i> Download Full Nmap Report (PDF)
+  </a>
 </body>
 </html>
