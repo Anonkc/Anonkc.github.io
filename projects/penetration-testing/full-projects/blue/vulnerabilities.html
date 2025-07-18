@@ -1,99 +1,140 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Vulnerability Assessment</title>
+  <title>Vulnerabilities - Blue Project</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: white;
       display: flex;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: white;
       min-height: 100vh;
     }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     aside {
       width: 250px;
-      background-color: #111;
-      padding: 1rem;
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 1.5rem;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.2);
     }
+
     aside h2 {
       color: #00ffff;
-      font-size: 1.2rem;
       margin-bottom: 1rem;
     }
-    aside ul {
-      list-style: none;
-      padding: 0;
-    }
-    aside ul li {
-      margin: 1rem 0;
-    }
-    aside ul li a {
+
+    aside a {
+      display: block;
       color: white;
       text-decoration: none;
+      margin: 0.5rem 0;
     }
-    main {
-      flex: 1;
-      padding: 2rem;
-    }
-    h1 {
+
+    aside a:hover {
       color: #00ffff;
     }
-    .image-container {
-      margin-top: 1rem;
+
+    main {
+      flex-grow: 1;
+      padding: 2rem;
     }
-    .image-container img {
-      max-width: 100%;
-      height: auto;
-      border: 2px solid #00ffff;
-      margin-bottom: 2rem;
+
+    h1 {
+      text-align: center;
+      color: #00ffff;
     }
-    .pdf-container {
-      margin-top: 1rem;
+
+    .content {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
     }
-    iframe {
+
+    img {
       width: 100%;
-      height: 500px;
-      border: none;
-      background: white;
-    }
-    .download-btn {
+      border-radius: 8px;
       margin-top: 1rem;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    ul {
+      margin-top: 1rem;
+      padding-left: 1.2rem;
+    }
+
+    ul li {
+      margin-bottom: 0.6rem;
+    }
+
+    a.download-link {
       display: inline-block;
-      background-color: #00ffff;
-      padding: 10px 20px;
-      color: black;
-      border-radius: 4px;
+      margin-top: 1rem;
+      color: #00ffff;
       text-decoration: none;
-      font-weight: bold;
+      border: 1px solid #00ffff;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+    }
+
+    a.download-link:hover {
+      background: #00ffff;
+      color: #000;
+    }
+
+    pre {
+      background: rgba(255,255,255,0.1);
+      padding: 0.5rem;
+      border-radius: 5px;
+      overflow-x: auto;
     }
   </style>
 </head>
 <body>
   <aside>
-    <h2>Blue: Breakdown</h2>
-    <ul>
-      <li><a href="../nmap-scan.html"><i class="fas fa-network-wired"></i> Nmap Scan</a></li>
-      <li><a href="../enumeration.html"><i class="fas fa-search"></i> Enumeration</a></li>
-      <li><a href="../vulnerabilities.html"><i class="fas fa-exclamation-triangle"></i> Vulnerabilities</a></li>
-      <li><a href="../exploitation.html"><i class="fas fa-bug"></i> Exploitation</a></li>
-      <li><a href="../privilege-escalation.html"><i class="fas fa-user-shield"></i> Privilege Escalation</a></li>
-    </ul>
+    <h2><i class="fas fa-folder-open"></i> Sections</h2>
+    <a href="nmap-scan.html"><i class="fas fa-network-wired"></i> Nmap Scan</a>
+    <a href="enumeration.html"><i class="fas fa-search"></i> Enumeration</a>
+    <a href="vulnerabilities.html"><i class="fas fa-exclamation-triangle"></i> Vulnerabilities</a>
+    <a href="exploitation.html"><i class="fas fa-bug"></i> Exploitation</a>
+    <a href="privilege-escalation.html"><i class="fas fa-user-shield"></i> Privilege Escalation</a>
   </aside>
   <main>
-    <h1>Vulnerability Assessment</h1>
-    <p>This section details the vulnerabilities identified on the target host.</p>
-    <div class="image-container">
-      <img src="IMG-20250718-WA0005.jpg" alt="Vulnerability Assessment Screenshot">
+    <h1><i class="fa-solid fa-exclamation-triangle"></i> Vulnerability Assessment</h1>
+
+    <div class="content">
+      <p>In this phase, we used the results from our Nmap and Enumeration steps to identify potential vulnerabilities.</p>
+
+      <ul>
+        <li>We discovered port <strong>445 (SMB)</strong> was open and the OS matched <strong>Windows 7/Server 2008</strong>.</li>
+        <li>These findings were consistent with known vulnerabilities, including <strong>MS17-010 (EternalBlue)</strong>.</li>
+        <li>We verified the vulnerability using <strong>Rapid7’s exploit database</strong> and selected the Metasploit module <code>exploit/windows/smb/ms17_010_eternalblue</code>.</li>
+        <li>This confirmed a critical remote code execution path was available with no authentication required.</li>
+      </ul>
+
+      <img src="images/Nmap_Annotated_Blue.jpg" alt="Highlighted Nmap Vulnerability">
+
+      <a class="download-link" href="downloads/Vulnerability.pdf.pdf" download>
+        <i class="fa-solid fa-file-arrow-down"></i> Download Vulnerability Report (PDF)
+      </a>
     </div>
-    <div class="pdf-container">
-      <iframe src="../nmap-report.pdf"></iframe>
-    </div>
-    <a href="../nmap-report.pdf" class="download-btn" download>Download Full Vulnerability Assessment (PDF)</a>
   </main>
 </body>
 </html>
