@@ -6,15 +6,19 @@
   <title>Blue: Full Project Breakdown</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: white;
+      color: #fff;
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       background-size: 400% 400%;
       animation: gradientBG 15s ease infinite;
+      display: flex;
       min-height: 100vh;
-      padding: 2rem;
     }
 
     @keyframes gradientBG {
@@ -23,52 +27,107 @@
       100% { background-position: 0% 50%; }
     }
 
+    nav {
+      width: 260px;
+      background-color: #111;
+      padding-top: 2rem;
+      flex-shrink: 0;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    nav ul li {
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #444;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #0ff;
+      font-weight: bold;
+    }
+
+    main {
+      flex-grow: 1;
+      padding: 2rem;
+    }
+
     h1 {
-      text-align: center;
       color: #00ffff;
+      text-align: center;
       margin-bottom: 2rem;
     }
 
     .section {
-      max-width: 600px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .btn {
-      background-color: rgba(255, 255, 255, 0.1);
-      padding: 1rem;
+      background-color: rgba(255, 255, 255, 0.05);
       border-radius: 10px;
+      padding: 1rem;
+      margin: 1rem 0;
       display: flex;
       align-items: center;
       gap: 1rem;
+      transition: background 0.3s ease;
+    }
+
+    .section:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .section a {
+      color: #fff;
       text-decoration: none;
-      color: white;
-      transition: background 0.3s;
+      font-size: 1.2rem;
+      font-weight: 500;
     }
 
-    .btn:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-    }
-
-    .btn i {
+    .section i {
+      color: #0ff;
       font-size: 1.5rem;
-      color: #00ffff;
     }
   </style>
 </head>
 <body>
-  <h1><i class="fa-solid fa-flag"></i> Blue: Full Project Breakdown</h1>
+  <nav>
+    <ul>
+      <li><a href="#">Blue L1</a></li>
+      <li><a href="nmap.html"><i class="fas fa-network-wired"></i> Nmap Scan</a></li>
+      <li><a href="enumeration.html"><i class="fas fa-search"></i> Enumeration & Discovery</a></li>
+      <li><a href="vulnerabilities.html"><i class="fas fa-exclamation-triangle"></i> Vulnerabilities</a></li>
+      <li><a href="exploitation.html"><i class="fas fa-bug"></i> Exploitation</a></li>
+      <li><a href="privesc.html"><i class="fas fa-user-shield"></i> Privilege Escalation</a></li>
+    </ul>
+  </nav>
 
-  <div class="section">
-    <a href="nmap.html" class="btn"><i class="fa-solid fa-network-wired"></i> Network Scan Report</a>
-    <a href="enumeration.html" class="btn"><i class="fa-solid fa-search"></i> Enumeration & Discovery</a>
-    <a href="vulnerability.html" class="btn"><i class="fa-solid fa-triangle-exclamation"></i> Vulnerability Assessment</a>
-    <a href="exploitation.html" class="btn"><i class="fa-solid fa-bug"></i> Exploitation Process</a>
-    <a href="privesc.html" class="btn"><i class="fa-solid fa-user-shield"></i> Privilege Escalation</a>
-  </div>
+  <main>
+    <h1>Blue: Full Project Breakdown</h1>
+
+    <div class="section">
+      <i class="fas fa-network-wired"></i>
+      <a href="nmap.html">Network Scan Report</a>
+    </div>
+
+    <div class="section">
+      <i class="fas fa-search"></i>
+      <a href="enumeration.html">Enumeration & Discovery</a>
+    </div>
+
+    <div class="section">
+      <i class="fas fa-exclamation-triangle"></i>
+      <a href="vulnerabilities.html">Vulnerability Assessment</a>
+    </div>
+
+    <div class="section">
+      <i class="fas fa-bug"></i>
+      <a href="exploitation.html">Exploitation Process</a>
+    </div>
+
+    <div class="section">
+      <i class="fas fa-user-shield"></i>
+      <a href="privesc.html">Privilege Escalation</a>
+    </div>
+  </main>
 </body>
 </html>
-
