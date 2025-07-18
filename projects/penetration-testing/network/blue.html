@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blue Network Scan</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: white;
+      min-height: 100vh;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    header div {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #00ffff;
+    }
+
+    nav a {
+      color: #00ffff;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover { color: #fff; }
+
+    main {
+      padding: 2.5rem 2rem;
+      max-width: 950px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: #00ffff;
+    }
+
+    section {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: #00bcd4;
+    }
+
+    ul {
+      margin-top: 0.5rem;
+      padding-left: 1.5rem;
+    }
+
+    ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    a {
+      color: #00ffff;
+      text-decoration: underline;
+    }
+
+    code {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .image-container {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    .image-container img {
+      width: 100%;
+      max-width: 800px;
+      border-radius: 10px;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      header { flex-direction: column; text-align: center; }
+      nav a { display: inline-block; margin: 10px 8px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>📡 Blue Network Scan</div>
+    <nav>
+      <a href="../../index.html">Home</a>
+      <a href="../index.html">← Back to Blue Project</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1><i class="fas fa-network-wired"></i> Nmap Scan Report – Blue</h1>
+
+    <section>
+      <h2>🔎 Target Info</h2>
+      <ul>
+        <li><strong>Target IP:</strong> <code>192.168.79.140</code></li>
+        <li><strong>Scan Tool:</strong> Nmap 7.94</li>
+        <li><strong>OS Detected:</strong> Microsoft Windows 7 Professional SP1</li>
+        <li><strong>Scan Type:</strong> SYN + Version Detection</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>📋 Open Ports and Services</h2>
+      <ul>
+        <li><code>135/tcp</code> – Microsoft RPC</li>
+        <li><code>139/tcp</code> – NetBIOS Session Service</li>
+        <li><code>445/tcp</code> – Microsoft-DS (SMB)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>⚠️ Notable Findings</h2>
+      <ul>
+        <li>Host is running vulnerable SMBv1 protocol.</li>
+        <li>Windows 7 is unpatched and susceptible to MS17-010 (EternalBlue).</li>
+        <li>No firewall blocking common ports.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>✅ Recommendations</h2>
+      <ul>
+        <li>Immediately patch system with Microsoft’s MS17-010 update.</li>
+        <li>Disable SMBv1 protocol in network settings.</li>
+        <li>Restrict access to ports 135, 139, and 445.</li>
+        <li>Harden OS and enable firewall rules.</li>
+      </ul>
+    </section>
+
+    <div class="image-container">
+      <h2>🖼️ Nmap Scan Screenshot</h2>
+      <img src="nmap_annotated_blue.jpg" alt="Nmap Scan Annotated">
+    </div>
+  </main>
+</body>
+</html>
