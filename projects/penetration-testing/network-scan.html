@@ -2,11 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <title>Network Scan Reports</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -29,6 +33,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+      text-align: center;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
 
@@ -38,14 +44,22 @@
       color: #00ffff;
     }
 
-    nav a {
-      color: #00ffff;
-      margin-left: 20px;
-      text-decoration: none;
-      font-weight: 500;
+    nav {
+      margin-top: 10px;
     }
 
-    nav a:hover { color: #fff; }
+    nav a {
+      color: #00ffff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-block;
+      padding: 0.5rem 0;
+    }
+
+    nav a:hover {
+      color: #ffffff;
+    }
 
     main {
       padding: 3rem 2rem;
@@ -55,7 +69,7 @@
 
     h1 {
       text-align: center;
-      font-size: 2.5rem;
+      font-size: 2.4rem;
       margin-bottom: 2rem;
       color: #00ffff;
     }
@@ -74,6 +88,7 @@
       display: flex;
       align-items: center;
       transition: transform 0.3s ease;
+      flex-wrap: wrap;
     }
 
     li:hover {
@@ -94,12 +109,41 @@
       font-weight: bold;
     }
 
-    li a:hover { color: #00ffff; }
+    li a:hover {
+      color: #00ffff;
+    }
 
-    @media (max-width: 600px) {
-      h1 { font-size: 2rem; }
-      header { flex-direction: column; text-align: center; }
-      nav a { display: inline-block; margin: 10px 8px; }
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+      }
+
+      nav {
+        margin-top: 10px;
+      }
+
+      nav a {
+        margin: 5px;
+        font-size: 1rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        padding: 1rem;
+      }
+
+      li a {
+        font-size: 1.05rem;
+      }
     }
   </style>
 </head>
