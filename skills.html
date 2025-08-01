@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <title>My Cybersecurity Skills</title>
   <style>
     body {
@@ -17,6 +17,7 @@
     h1 {
       text-align: center;
       margin-bottom: 2rem;
+      font-size: 2rem;
     }
 
     .category {
@@ -39,6 +40,7 @@
       display: flex;
       justify-content: space-between;
       margin-bottom: 5px;
+      flex-wrap: wrap;
     }
 
     .bar-container {
@@ -58,17 +60,56 @@
     .nav {
       text-align: center;
       margin-bottom: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
     .nav a {
       color: #00ffd5;
       text-decoration: none;
-      margin: 0 15px;
       font-weight: bold;
     }
 
     .nav a:hover {
       text-decoration: underline;
+    }
+
+    /* Responsive tweaks for mobile devices */
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .nav a {
+        font-size: 1rem;
+      }
+
+      .skill-label {
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 0.95rem;
+        gap: 4px;
+      }
+
+      .bar-container {
+        height: 18px;
+      }
+
+      .category h2 {
+        font-size: 1.25rem;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+      }
     }
   </style>
 </head>
