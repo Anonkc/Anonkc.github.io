@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <title>Kioptrix Vulnerability Assessment</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
@@ -16,6 +16,7 @@
       color: white;
       min-height: 100vh;
       display: flex;
+      flex-direction: column;
     }
 
     @keyframes gradientBG {
@@ -24,30 +25,38 @@
       100% { background-position: 0% 50%; }
     }
 
-    .sidebar {
-      width: 220px;
+    .topnav {
       background-color: rgba(0, 0, 0, 0.6);
-      padding: 2rem 1rem;
-      min-height: 100vh;
-      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
 
-    .sidebar h2 {
+    .topnav div {
+      font-weight: bold;
+      font-size: 1.2rem;
       color: #00ffff;
-      font-size: 1.4rem;
-      margin-bottom: 1.5rem;
     }
 
-    .sidebar a {
-      display: block;
+    .topnav nav {
+      margin-top: 10px;
+    }
+
+    .topnav nav a {
       color: #00ffff;
+      margin: 0 10px;
       text-decoration: none;
-      margin: 1rem 0;
       font-weight: 500;
+      display: inline-block;
+      padding: 0.5rem 0;
     }
 
-    .sidebar a:hover {
-      color: white;
+    .topnav nav a:hover {
+      color: #ffffff;
     }
 
     main {
@@ -94,16 +103,47 @@
     }
 
     @media (max-width: 800px) {
-      body { flex-direction: column; }
-      .sidebar {
-        width: 100%;
-        text-align: center;
+      .topnav {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+      }
+
+      .topnav nav {
+        margin-top: 10px;
+      }
+
+      .topnav nav a {
+        margin: 5px;
+        font-size: 0.95rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.2rem;
+      }
+
+      main {
+        padding: 1.5rem 1rem;
+      }
+
+      ul {
+        padding-left: 1rem;
       }
     }
   </style>
 </head>
 <body>
-
+  <div class="topnav">
+    <div>🛡️ Kioptrix Vulnerability Assessment</div>
+    <nav>
+      <a href="../../index.html">Home</a>
+      <a href="../vulnerability-assessment.html">← Back to Vulnerability Assessments</a>
+    </nav>
+  </div>
 
   <main>
     <h1><i class="fas fa-shield-alt"></i> Vulnerability Assessment – Kioptrix</h1>
