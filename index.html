@@ -7,9 +7,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
   <style>
-    body {
+    html, body {
       margin: 0;
       padding: 0;
+      scroll-behavior: smooth;
       background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
       color: #fff;
       font-family: 'Segoe UI', sans-serif;
@@ -17,14 +18,14 @@
       overflow-x: hidden;
     }
 
-    /* Navigation */
+    /* Navbar */
     nav {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 12px;
+      gap: 15px;
       background-color: #111;
-      padding: 15px 10px;
+      padding: 15px 0;
       font-size: 1rem;
     }
 
@@ -35,29 +36,18 @@
       align-items: center;
       gap: 5px;
       transition: color 0.3s;
-      padding: 6px 10px;
     }
 
     nav a:hover {
-      color: #ffffff;
+      color: #fff;
     }
 
-    /* Intro */
     .intro {
       max-width: 800px;
       margin: 60px auto 0;
       text-align: center;
       padding: 0 20px;
-      opacity: 0;
-      transform: translateY(40px);
-      animation: introFadeIn 1s ease-out 0.3s forwards;
-    }
-
-    @keyframes introFadeIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      animation: fadeInUp 1.5s ease-out both;
     }
 
     h1 {
@@ -74,6 +64,10 @@
       color: #00ffff;
       animation: typing 4s steps(30, end), blink 0.75s step-end infinite;
       max-width: 100%;
+      width: 100%;
+      box-sizing: border-box;
+      text-align: center;
+      word-break: break-word;
     }
 
     @keyframes typing {
@@ -85,6 +79,17 @@
       50% { border-color: transparent; }
     }
 
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     p {
       font-size: 1.1em;
       line-height: 1.6;
@@ -92,9 +97,6 @@
 
     .buttons {
       margin-top: 30px;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 1s ease;
     }
 
     .buttons a {
@@ -112,17 +114,14 @@
       background-color: #008c9e;
     }
 
+    /* Illustration or About section */
     .illustration {
-      margin-top: 40px;
+      margin-top: 50px;
       text-align: center;
-      padding: 0 1rem;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: all 1s ease;
     }
 
     .illustration img {
-      width: 100%;
+      width: 90%;
       max-width: 400px;
       border-radius: 12px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.4);
@@ -136,42 +135,27 @@
       margin-top: 60px;
     }
 
-    /* Scroll Animation Classes */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 1s ease;
-    }
-
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (max-width: 768px) {
-      h1 { font-size: 1.8em; }
-      .typewriter { font-size: 1.4em; }
-      .intro p { font-size: 1em; }
-      .buttons a {
-        font-size: 0.95em;
-        padding: 8px 16px;
-        margin: 8px 5px;
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.6em;
       }
-    }
 
-    @media (max-width: 480px) {
-      nav { flex-direction: column; align-items: center; }
+      .typewriter {
+        font-size: 1.3em;
+        animation: typing 3s steps(20, end), blink 0.75s step-end infinite;
+      }
+
       .buttons a {
-        display: block;
-        width: 80%;
-        margin: 10px auto;
+        font-size: 0.9em;
+        padding: 8px 16px;
+        margin: 8px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation -->
+  <!-- Navigation Bar -->
   <nav>
     <a href="index.html"><i class="fas fa-home"></i> Home</a>
     <a href="certifications.html"><i class="fas fa-certificate"></i> Certifications</a>
@@ -181,10 +165,10 @@
     <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
   </nav>
 
-  <!-- Intro -->
+  <!-- Introduction Section -->
   <div class="intro">
     <h1><span class="typewriter">Ayodele Oluwafemi</span></h1>
-    <p class="fade-in">
+    <p>
       I am a passionate cybersecurity analyst with strong practical skills in incident response,
       penetration testing, and digital forensics. With training and certifications from top
       platforms like Google Coursera, TryHackMe, and Deloitte Virtual Internships, I bring
@@ -193,34 +177,18 @@
       response, and technical documentation skills.
     </p>
 
-    <div class="buttons fade-in">
+    <div class="buttons">
       <a href="projects.html">View My Projects</a>
       <a href="about.html">Learn More About Me</a>
     </div>
   </div>
 
-  <!-- Illustration -->
-  <div class="illustration fade-in">
+  <!-- Optional Cybersecurity Illustration -->
+  <div class="illustration">
     <img src="profile.jpg" alt="Cybersecurity Visual">
   </div>
 
-  <!-- Footer -->
   <footer>© 2025 Ayodele Oluwafemi. All rights reserved.</footer>
 
-  <!-- Scroll Animation Script -->
-  <script>
-    const faders = document.querySelectorAll('.fade-in');
-
-    const appearOnScroll = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.3 });
-
-    faders.forEach(el => appearOnScroll.observe(el));
-  </script>
 </body>
 </html>
