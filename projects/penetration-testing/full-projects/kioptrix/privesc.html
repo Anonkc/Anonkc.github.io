@@ -2,14 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <title>Privilege Escalation - Kioptrix</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     body {
       display: flex;
+      flex-direction: row;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: white;
@@ -30,16 +35,26 @@
       text-align: center;
     }
 
-    aside ul { list-style: none; }
-    aside li { margin-bottom: 1rem; }
+    aside ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    aside li {
+      margin-bottom: 1rem;
+    }
+
     aside a {
       color: #fff;
       text-decoration: none;
-      display: block;
+      display: flex;
+      align-items: center;
+      gap: 8px;
       padding: 10px;
       border-radius: 8px;
       transition: background 0.2s ease;
     }
+
     aside a:hover {
       background-color: rgba(0, 255, 255, 0.2);
       color: #00ffff;
@@ -54,11 +69,13 @@
       font-size: 2rem;
       color: #00ffff;
       margin-bottom: 1rem;
+      text-align: center;
     }
 
     h2 {
-      margin-top: 1.5rem;
+      margin-top: 2rem;
       color: #00bcd4;
+      font-size: 1.3rem;
     }
 
     p {
@@ -84,7 +101,7 @@
     iframe {
       width: 100%;
       height: 500px;
-      margin-top: 2rem;
+      margin-top: 1rem;
       border: 2px solid #00ffff;
       border-radius: 10px;
     }
@@ -98,6 +115,7 @@
       border-radius: 8px;
       text-decoration: none;
       font-weight: bold;
+      transition: background 0.3s ease;
     }
 
     a.download-link:hover {
@@ -105,11 +123,59 @@
       color: #000;
     }
 
+    /* Mobile Optimizations */
     @media (max-width: 768px) {
-      body { flex-direction: column; }
-      aside { width: 100%; text-align: center; }
-      main { padding: 1.5rem; }
-      .proof-images { justify-content: center; }
+      body {
+        flex-direction: column;
+      }
+
+      aside {
+        width: 100%;
+        text-align: center;
+        padding: 1.5rem 1rem;
+      }
+
+      aside ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      aside li {
+        margin: 0;
+      }
+
+      aside a {
+        justify-content: center;
+        font-size: 0.95rem;
+        padding: 10px 15px;
+      }
+
+      main {
+        padding: 1.5rem 1rem;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      h2 {
+        font-size: 1.15rem;
+      }
+
+      iframe {
+        height: 300px;
+      }
+
+      .proof-images {
+        justify-content: center;
+      }
+
+      .proof-images img {
+        width: 90%;
+        max-width: 320px;
+      }
     }
   </style>
 </head>
@@ -118,7 +184,7 @@
     <h2><i class="fas fa-server"></i> Kioptrix L1</h2>
     <ul>
       <li><a href="nmap.html"><i class="fas fa-sitemap"></i> Nmap Scan</a></li>
-      <li><a href="enumeration.html"><i class="fas fa-search"></i> Enumeration & Discovery</a></li>
+      <li><a href="enumeration.html"><i class="fas fa-search"></i> Enumeration</a></li>
       <li><a href="vulnerabilities.html"><i class="fas fa-exclamation-triangle"></i> Vulnerabilities</a></li>
       <li><a href="exploit.html"><i class="fas fa-bug"></i> Exploitation</a></li>
       <li><a href="privesc.html"><i class="fas fa-user-shield"></i> Privilege Escalation</a></li>
