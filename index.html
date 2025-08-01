@@ -14,16 +14,17 @@
       color: #fff;
       font-family: 'Segoe UI', sans-serif;
       min-height: 100vh;
+      overflow-x: hidden;
     }
 
-    /* Navbar */
+    /* Navigation */
     nav {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 15px;
+      gap: 12px;
       background-color: #111;
-      padding: 15px 0;
+      padding: 15px 10px;
       font-size: 1rem;
     }
 
@@ -34,17 +35,29 @@
       align-items: center;
       gap: 5px;
       transition: color 0.3s;
+      padding: 6px 10px;
     }
 
     nav a:hover {
-      color: #fff;
+      color: #ffffff;
     }
 
+    /* Intro */
     .intro {
       max-width: 800px;
       margin: 60px auto 0;
       text-align: center;
       padding: 0 20px;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: introFadeIn 1s ease-out 0.3s forwards;
+    }
+
+    @keyframes introFadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     h1 {
@@ -79,6 +92,9 @@
 
     .buttons {
       margin-top: 30px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease;
     }
 
     .buttons a {
@@ -96,14 +112,17 @@
       background-color: #008c9e;
     }
 
-    /* Illustration or About section */
     .illustration {
-      margin-top: 50px;
+      margin-top: 40px;
       text-align: center;
+      padding: 0 1rem;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease;
     }
 
     .illustration img {
-      width: 90%;
+      width: 100%;
       max-width: 400px;
       border-radius: 12px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.4);
@@ -117,26 +136,42 @@
       margin-top: 60px;
     }
 
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 1.7em;
-      }
+    /* Scroll Animation Classes */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease;
+    }
 
-      .typewriter {
-        font-size: 1.5em;
-      }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
+    @media (max-width: 768px) {
+      h1 { font-size: 1.8em; }
+      .typewriter { font-size: 1.4em; }
+      .intro p { font-size: 1em; }
       .buttons a {
-        font-size: 0.9em;
+        font-size: 0.95em;
         padding: 8px 16px;
-        margin: 8px;
+        margin: 8px 5px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav { flex-direction: column; align-items: center; }
+      .buttons a {
+        display: block;
+        width: 80%;
+        margin: 10px auto;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation Bar -->
+  <!-- Navigation -->
   <nav>
     <a href="index.html"><i class="fas fa-home"></i> Home</a>
     <a href="certifications.html"><i class="fas fa-certificate"></i> Certifications</a>
@@ -146,10 +181,10 @@
     <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
   </nav>
 
-  <!-- Introduction Section -->
+  <!-- Intro -->
   <div class="intro">
     <h1><span class="typewriter">Ayodele Oluwafemi</span></h1>
-    <p>
+    <p class="fade-in">
       I am a passionate cybersecurity analyst with strong practical skills in incident response,
       penetration testing, and digital forensics. With training and certifications from top
       platforms like Google Coursera, TryHackMe, and Deloitte Virtual Internships, I bring
@@ -158,18 +193,34 @@
       response, and technical documentation skills.
     </p>
 
-    <div class="buttons">
+    <div class="buttons fade-in">
       <a href="projects.html">View My Projects</a>
       <a href="about.html">Learn More About Me</a>
     </div>
   </div>
 
-  <!-- Optional Cybersecurity Illustration -->
-  <div class="illustration">
+  <!-- Illustration -->
+  <div class="illustration fade-in">
     <img src="profile.jpg" alt="Cybersecurity Visual">
   </div>
 
+  <!-- Footer -->
   <footer>© 2025 Ayodele Oluwafemi. All rights reserved.</footer>
 
+  <!-- Scroll Animation Script -->
+  <script>
+    const faders = document.querySelectorAll('.fade-in');
+
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    faders.forEach(el => appearOnScroll.observe(el));
+  </script>
 </body>
 </html>
